@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA3532D3160453E000E8A5DC /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3532D2160453E000E8A5DC /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CA79A752160506F800FBF56C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = CA79A751160506F800FBF56C /* background.png */; };
 		CABD328216041C3200B828DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328116041C3200B828DC /* UIKit.framework */; };
 		CABD328416041C3300B828DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328316041C3200B828DC /* Foundation.framework */; };
 		CABD328616041C3300B828DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328516041C3300B828DC /* CoreGraphics.framework */; };
@@ -15,8 +17,6 @@
 		CABD329216041C3300B828DC /* KRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329116041C3300B828DC /* KRAppDelegate.m */; };
 		CABD329516041C3300B828DC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABD329316041C3300B828DC /* MainStoryboard.storyboard */; };
 		CABD329816041C3300B828DC /* KRFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329716041C3300B828DC /* KRFirstViewController.m */; };
-		CABD329A16041C3300B828DC /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD329916041C3300B828DC /* first.png */; };
-		CABD329C16041C3300B828DC /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD329B16041C3300B828DC /* first@2x.png */; };
 		CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329E16041C3300B828DC /* KRSecondViewController.m */; };
 		CABD32A116041C3300B828DC /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32A016041C3300B828DC /* second.png */; };
 		CABD32A316041C3300B828DC /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32A216041C3300B828DC /* second@2x.png */; };
@@ -28,9 +28,13 @@
 		CABD32BB1604214600B828DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32BA1604214600B828DC /* QuartzCore.framework */; };
 		CABD32C01604388E00B828DC /* retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32BF1604388E00B828DC /* retina.png */; };
 		CABD32C2160439CB00B828DC /* nonretina.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32C1160439CB00B828DC /* nonretina.png */; };
+		CAFD2C151604728A0080F1A3 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAFD2C141604728A0080F1A3 /* background@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA3532D1160453E000E8A5DC /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = ../JSONKit.h; sourceTree = "<group>"; };
+		CA3532D2160453E000E8A5DC /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = ../JSONKit.m; sourceTree = "<group>"; };
+		CA79A751160506F800FBF56C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "KLIK Radio/background.png"; sourceTree = "<group>"; };
 		CABD327D16041C3200B828DC /* KLIK Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KLIK Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABD328116041C3200B828DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CABD328316041C3200B828DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -44,8 +48,6 @@
 		CABD329416041C3300B828DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		CABD329616041C3300B828DC /* KRFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRFirstViewController.h; sourceTree = "<group>"; };
 		CABD329716041C3300B828DC /* KRFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRFirstViewController.m; sourceTree = "<group>"; };
-		CABD329916041C3300B828DC /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		CABD329B16041C3300B828DC /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		CABD329D16041C3300B828DC /* KRSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRSecondViewController.h; sourceTree = "<group>"; };
 		CABD329E16041C3300B828DC /* KRSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRSecondViewController.m; sourceTree = "<group>"; };
 		CABD32A016041C3300B828DC /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		CABD32BA1604214600B828DC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CABD32BF1604388E00B828DC /* retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retina.png; sourceTree = "<group>"; };
 		CABD32C1160439CB00B828DC /* nonretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nonretina.png; sourceTree = "<group>"; };
+		CAFD2C141604728A0080F1A3 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "KLIK Radio/background@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 		CABD327216041C3200B828DC = {
 			isa = PBXGroup;
 			children = (
+				CA79A751160506F800FBF56C /* background.png */,
+				CAFD2C141604728A0080F1A3 /* background@2x.png */,
 				CABD32C1160439CB00B828DC /* nonretina.png */,
 				CABD32BF1604388E00B828DC /* retina.png */,
 				CABD328716041C3300B828DC /* KLIK Radio */,
@@ -117,13 +122,13 @@
 			isa = PBXGroup;
 			children = (
 				CABD32BC1604215A00B828DC /* Audio */,
+				CA3532D1160453E000E8A5DC /* JSONKit.h */,
+				CA3532D2160453E000E8A5DC /* JSONKit.m */,
 				CABD329016041C3300B828DC /* KRAppDelegate.h */,
 				CABD329116041C3300B828DC /* KRAppDelegate.m */,
 				CABD329316041C3300B828DC /* MainStoryboard.storyboard */,
 				CABD329616041C3300B828DC /* KRFirstViewController.h */,
 				CABD329716041C3300B828DC /* KRFirstViewController.m */,
-				CABD329916041C3300B828DC /* first.png */,
-				CABD329B16041C3300B828DC /* first@2x.png */,
 				CABD329D16041C3300B828DC /* KRSecondViewController.h */,
 				CABD329E16041C3300B828DC /* KRSecondViewController.m */,
 				CABD32A016041C3300B828DC /* second.png */,
@@ -209,12 +214,12 @@
 			files = (
 				CABD328C16041C3300B828DC /* InfoPlist.strings in Resources */,
 				CABD329516041C3300B828DC /* MainStoryboard.storyboard in Resources */,
-				CABD329A16041C3300B828DC /* first.png in Resources */,
-				CABD329C16041C3300B828DC /* first@2x.png in Resources */,
 				CABD32A116041C3300B828DC /* second.png in Resources */,
 				CABD32A316041C3300B828DC /* second@2x.png in Resources */,
 				CABD32C01604388E00B828DC /* retina.png in Resources */,
 				CABD32C2160439CB00B828DC /* nonretina.png in Resources */,
+				CAFD2C151604728A0080F1A3 /* background@2x.png in Resources */,
+				CA79A752160506F800FBF56C /* background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +236,7 @@
 				CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */,
 				CABD32B016041E7700B828DC /* AudioStreamer.m in Sources */,
 				CABD32B316041FD600B828DC /* UIDevice+Hardware.m in Sources */,
+				CA3532D3160453E000E8A5DC /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +352,7 @@
 				CABD32A816041C3300B828DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

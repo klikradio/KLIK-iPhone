@@ -8,11 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "AudioStreamer.h"
+#import "JSONKit.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface KRFirstViewController : UIViewController
 {
     AudioStreamer *streamer;
-    IBOutlet UILabel *TempNP;
+    IBOutlet UIActivityIndicatorView *NowPlayingBuffering;
+    IBOutlet UIImageView *NowPlayingImage;
+    IBOutlet UILabel *NowPlayingTitle;
+    IBOutlet UILabel *NowPlayingArtist;
+    IBOutlet UIView *NowPlayingVolume;
+    IBOutlet UIButton *NowPlayingStop;
+    
+    MPVolumeView *mpv;
 }
+
+- (IBAction)StopPressed:(id)sender;
+- (IBAction)BuySongPressed:(id)sender;
 
 @end
