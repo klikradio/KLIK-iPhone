@@ -1,0 +1,309 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CABD328216041C3200B828DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328116041C3200B828DC /* UIKit.framework */; };
+		CABD328416041C3300B828DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328316041C3200B828DC /* Foundation.framework */; };
+		CABD328616041C3300B828DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328516041C3300B828DC /* CoreGraphics.framework */; };
+		CABD328C16041C3300B828DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CABD328A16041C3300B828DC /* InfoPlist.strings */; };
+		CABD328E16041C3300B828DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD328D16041C3300B828DC /* main.m */; };
+		CABD329216041C3300B828DC /* KRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329116041C3300B828DC /* KRAppDelegate.m */; };
+		CABD329516041C3300B828DC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABD329316041C3300B828DC /* MainStoryboard.storyboard */; };
+		CABD329816041C3300B828DC /* KRFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329716041C3300B828DC /* KRFirstViewController.m */; };
+		CABD329A16041C3300B828DC /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD329916041C3300B828DC /* first.png */; };
+		CABD329C16041C3300B828DC /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD329B16041C3300B828DC /* first@2x.png */; };
+		CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329E16041C3300B828DC /* KRSecondViewController.m */; };
+		CABD32A116041C3300B828DC /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32A016041C3300B828DC /* second.png */; };
+		CABD32A316041C3300B828DC /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32A216041C3300B828DC /* second@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CABD327D16041C3200B828DC /* KLIK Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KLIK Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CABD328116041C3200B828DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CABD328316041C3200B828DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CABD328516041C3300B828DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CABD328916041C3300B828DC /* KLIK Radio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KLIK Radio-Info.plist"; sourceTree = "<group>"; };
+		CABD328B16041C3300B828DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CABD328D16041C3300B828DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CABD328F16041C3300B828DC /* KLIK Radio-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KLIK Radio-Prefix.pch"; sourceTree = "<group>"; };
+		CABD329016041C3300B828DC /* KRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRAppDelegate.h; sourceTree = "<group>"; };
+		CABD329116041C3300B828DC /* KRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRAppDelegate.m; sourceTree = "<group>"; };
+		CABD329416041C3300B828DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		CABD329616041C3300B828DC /* KRFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRFirstViewController.h; sourceTree = "<group>"; };
+		CABD329716041C3300B828DC /* KRFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRFirstViewController.m; sourceTree = "<group>"; };
+		CABD329916041C3300B828DC /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		CABD329B16041C3300B828DC /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		CABD329D16041C3300B828DC /* KRSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRSecondViewController.h; sourceTree = "<group>"; };
+		CABD329E16041C3300B828DC /* KRSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRSecondViewController.m; sourceTree = "<group>"; };
+		CABD32A016041C3300B828DC /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		CABD32A216041C3300B828DC /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CABD327A16041C3200B828DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CABD328216041C3200B828DC /* UIKit.framework in Frameworks */,
+				CABD328416041C3300B828DC /* Foundation.framework in Frameworks */,
+				CABD328616041C3300B828DC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CABD327216041C3200B828DC = {
+			isa = PBXGroup;
+			children = (
+				CABD328716041C3300B828DC /* KLIK Radio */,
+				CABD328016041C3200B828DC /* Frameworks */,
+				CABD327E16041C3200B828DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CABD327E16041C3200B828DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CABD327D16041C3200B828DC /* KLIK Radio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CABD328016041C3200B828DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CABD328116041C3200B828DC /* UIKit.framework */,
+				CABD328316041C3200B828DC /* Foundation.framework */,
+				CABD328516041C3300B828DC /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CABD328716041C3300B828DC /* KLIK Radio */ = {
+			isa = PBXGroup;
+			children = (
+				CABD329016041C3300B828DC /* KRAppDelegate.h */,
+				CABD329116041C3300B828DC /* KRAppDelegate.m */,
+				CABD329316041C3300B828DC /* MainStoryboard.storyboard */,
+				CABD329616041C3300B828DC /* KRFirstViewController.h */,
+				CABD329716041C3300B828DC /* KRFirstViewController.m */,
+				CABD329916041C3300B828DC /* first.png */,
+				CABD329B16041C3300B828DC /* first@2x.png */,
+				CABD329D16041C3300B828DC /* KRSecondViewController.h */,
+				CABD329E16041C3300B828DC /* KRSecondViewController.m */,
+				CABD32A016041C3300B828DC /* second.png */,
+				CABD32A216041C3300B828DC /* second@2x.png */,
+				CABD328816041C3300B828DC /* Supporting Files */,
+			);
+			path = "KLIK Radio";
+			sourceTree = "<group>";
+		};
+		CABD328816041C3300B828DC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CABD328916041C3300B828DC /* KLIK Radio-Info.plist */,
+				CABD328A16041C3300B828DC /* InfoPlist.strings */,
+				CABD328D16041C3300B828DC /* main.m */,
+				CABD328F16041C3300B828DC /* KLIK Radio-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CABD327C16041C3200B828DC /* KLIK Radio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CABD32A616041C3300B828DC /* Build configuration list for PBXNativeTarget "KLIK Radio" */;
+			buildPhases = (
+				CABD327916041C3200B828DC /* Sources */,
+				CABD327A16041C3200B828DC /* Frameworks */,
+				CABD327B16041C3200B828DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "KLIK Radio";
+			productName = "KLIK Radio";
+			productReference = CABD327D16041C3200B828DC /* KLIK Radio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CABD327416041C3200B828DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = KR;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "KLIK Radio";
+			};
+			buildConfigurationList = CABD327716041C3200B828DC /* Build configuration list for PBXProject "KLIK Radio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CABD327216041C3200B828DC;
+			productRefGroup = CABD327E16041C3200B828DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CABD327C16041C3200B828DC /* KLIK Radio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CABD327B16041C3200B828DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CABD328C16041C3300B828DC /* InfoPlist.strings in Resources */,
+				CABD329516041C3300B828DC /* MainStoryboard.storyboard in Resources */,
+				CABD329A16041C3300B828DC /* first.png in Resources */,
+				CABD329C16041C3300B828DC /* first@2x.png in Resources */,
+				CABD32A116041C3300B828DC /* second.png in Resources */,
+				CABD32A316041C3300B828DC /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CABD327916041C3200B828DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CABD328E16041C3300B828DC /* main.m in Sources */,
+				CABD329216041C3300B828DC /* KRAppDelegate.m in Sources */,
+				CABD329816041C3300B828DC /* KRFirstViewController.m in Sources */,
+				CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CABD328A16041C3300B828DC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CABD328B16041C3300B828DC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CABD329316041C3300B828DC /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CABD329416041C3300B828DC /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CABD32A416041C3300B828DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CABD32A516041C3300B828DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CABD32A716041C3300B828DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KLIK Radio/KLIK Radio-Prefix.pch";
+				INFOPLIST_FILE = "KLIK Radio/KLIK Radio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CABD32A816041C3300B828DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KLIK Radio/KLIK Radio-Prefix.pch";
+				INFOPLIST_FILE = "KLIK Radio/KLIK Radio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CABD327716041C3200B828DC /* Build configuration list for PBXProject "KLIK Radio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CABD32A416041C3300B828DC /* Debug */,
+				CABD32A516041C3300B828DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CABD32A616041C3300B828DC /* Build configuration list for PBXNativeTarget "KLIK Radio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CABD32A716041C3300B828DC /* Debug */,
+				CABD32A816041C3300B828DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CABD327416041C3200B828DC /* Project object */;
+}
