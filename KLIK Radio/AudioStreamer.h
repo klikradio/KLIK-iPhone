@@ -20,7 +20,7 @@
 #endif
 #else
 #import <Cocoa/Cocoa.h>
-#endif TARGET_OS_IPHONE			
+#endif
 
 #import <Foundation/Foundation.h>
 #include <pthread.h>

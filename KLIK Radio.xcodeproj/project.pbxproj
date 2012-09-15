@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CA3532D3160453E000E8A5DC /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3532D2160453E000E8A5DC /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CA79A752160506F800FBF56C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = CA79A751160506F800FBF56C /* background.png */; };
+		CA79A75A1605108000FBF56C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CA79A7591605108000FBF56C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CA79A75C1605111300FBF56C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA79A75B1605111300FBF56C /* SystemConfiguration.framework */; };
 		CABD328216041C3200B828DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328116041C3200B828DC /* UIKit.framework */; };
 		CABD328416041C3300B828DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328316041C3200B828DC /* Foundation.framework */; };
 		CABD328616041C3300B828DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328516041C3300B828DC /* CoreGraphics.framework */; };
@@ -16,7 +18,7 @@
 		CABD328E16041C3300B828DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD328D16041C3300B828DC /* main.m */; };
 		CABD329216041C3300B828DC /* KRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329116041C3300B828DC /* KRAppDelegate.m */; };
 		CABD329516041C3300B828DC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABD329316041C3300B828DC /* MainStoryboard.storyboard */; };
-		CABD329816041C3300B828DC /* KRFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329716041C3300B828DC /* KRFirstViewController.m */; };
+		CABD329816041C3300B828DC /* KRNowPlayingController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329716041C3300B828DC /* KRNowPlayingController.m */; };
 		CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329E16041C3300B828DC /* KRSecondViewController.m */; };
 		CABD32A116041C3300B828DC /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32A016041C3300B828DC /* second.png */; };
 		CABD32A316041C3300B828DC /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32A216041C3300B828DC /* second@2x.png */; };
@@ -28,6 +30,8 @@
 		CABD32BB1604214600B828DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32BA1604214600B828DC /* QuartzCore.framework */; };
 		CABD32C01604388E00B828DC /* retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32BF1604388E00B828DC /* retina.png */; };
 		CABD32C2160439CB00B828DC /* nonretina.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32C1160439CB00B828DC /* nonretina.png */; };
+		CAC411D7160515F200B9EFB9 /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC411D5160515F200B9EFB9 /* wifi.png */; };
+		CAC411D8160515F200B9EFB9 /* wifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC411D6160515F200B9EFB9 /* wifi@2x.png */; };
 		CAFD2C151604728A0080F1A3 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAFD2C141604728A0080F1A3 /* background@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +39,9 @@
 		CA3532D1160453E000E8A5DC /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = ../JSONKit.h; sourceTree = "<group>"; };
 		CA3532D2160453E000E8A5DC /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = ../JSONKit.m; sourceTree = "<group>"; };
 		CA79A751160506F800FBF56C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "KLIK Radio/background.png"; sourceTree = "<group>"; };
+		CA79A7581605108000FBF56C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		CA79A7591605108000FBF56C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		CA79A75B1605111300FBF56C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CABD327D16041C3200B828DC /* KLIK Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KLIK Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABD328116041C3200B828DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CABD328316041C3200B828DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,8 +53,8 @@
 		CABD329016041C3300B828DC /* KRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRAppDelegate.h; sourceTree = "<group>"; };
 		CABD329116041C3300B828DC /* KRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRAppDelegate.m; sourceTree = "<group>"; };
 		CABD329416041C3300B828DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		CABD329616041C3300B828DC /* KRFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRFirstViewController.h; sourceTree = "<group>"; };
-		CABD329716041C3300B828DC /* KRFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRFirstViewController.m; sourceTree = "<group>"; };
+		CABD329616041C3300B828DC /* KRNowPlayingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRNowPlayingController.h; sourceTree = "<group>"; };
+		CABD329716041C3300B828DC /* KRNowPlayingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRNowPlayingController.m; sourceTree = "<group>"; };
 		CABD329D16041C3300B828DC /* KRSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRSecondViewController.h; sourceTree = "<group>"; };
 		CABD329E16041C3300B828DC /* KRSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRSecondViewController.m; sourceTree = "<group>"; };
 		CABD32A016041C3300B828DC /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
@@ -62,6 +69,8 @@
 		CABD32BA1604214600B828DC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CABD32BF1604388E00B828DC /* retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retina.png; sourceTree = "<group>"; };
 		CABD32C1160439CB00B828DC /* nonretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nonretina.png; sourceTree = "<group>"; };
+		CAC411D5160515F200B9EFB9 /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wifi.png; path = "KLIK Radio/wifi.png"; sourceTree = "<group>"; };
+		CAC411D6160515F200B9EFB9 /* wifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi@2x.png"; path = "KLIK Radio/wifi@2x.png"; sourceTree = "<group>"; };
 		CAFD2C141604728A0080F1A3 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "KLIK Radio/background@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA79A75C1605111300FBF56C /* SystemConfiguration.framework in Frameworks */,
 				CABD32BB1604214600B828DC /* QuartzCore.framework in Frameworks */,
 				CABD32B9160420B300B828DC /* CFNetwork.framework in Frameworks */,
 				CABD32B7160420AE00B828DC /* AudioToolbox.framework in Frameworks */,
@@ -86,6 +96,8 @@
 		CABD327216041C3200B828DC = {
 			isa = PBXGroup;
 			children = (
+				CAC411D5160515F200B9EFB9 /* wifi.png */,
+				CAC411D6160515F200B9EFB9 /* wifi@2x.png */,
 				CA79A751160506F800FBF56C /* background.png */,
 				CAFD2C141604728A0080F1A3 /* background@2x.png */,
 				CABD32C1160439CB00B828DC /* nonretina.png */,
@@ -107,6 +119,7 @@
 		CABD328016041C3200B828DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA79A75B1605111300FBF56C /* SystemConfiguration.framework */,
 				CABD32BA1604214600B828DC /* QuartzCore.framework */,
 				CABD32B8160420B300B828DC /* CFNetwork.framework */,
 				CABD32B6160420AE00B828DC /* AudioToolbox.framework */,
@@ -121,14 +134,16 @@
 		CABD328716041C3300B828DC /* KLIK Radio */ = {
 			isa = PBXGroup;
 			children = (
+				CA79A7581605108000FBF56C /* Reachability.h */,
+				CA79A7591605108000FBF56C /* Reachability.m */,
 				CABD32BC1604215A00B828DC /* Audio */,
 				CA3532D1160453E000E8A5DC /* JSONKit.h */,
 				CA3532D2160453E000E8A5DC /* JSONKit.m */,
 				CABD329016041C3300B828DC /* KRAppDelegate.h */,
 				CABD329116041C3300B828DC /* KRAppDelegate.m */,
 				CABD329316041C3300B828DC /* MainStoryboard.storyboard */,
-				CABD329616041C3300B828DC /* KRFirstViewController.h */,
-				CABD329716041C3300B828DC /* KRFirstViewController.m */,
+				CABD329616041C3300B828DC /* KRNowPlayingController.h */,
+				CABD329716041C3300B828DC /* KRNowPlayingController.m */,
 				CABD329D16041C3300B828DC /* KRSecondViewController.h */,
 				CABD329E16041C3300B828DC /* KRSecondViewController.m */,
 				CABD32A016041C3300B828DC /* second.png */,
@@ -220,6 +235,8 @@
 				CABD32C2160439CB00B828DC /* nonretina.png in Resources */,
 				CAFD2C151604728A0080F1A3 /* background@2x.png in Resources */,
 				CA79A752160506F800FBF56C /* background.png in Resources */,
+				CAC411D7160515F200B9EFB9 /* wifi.png in Resources */,
+				CAC411D8160515F200B9EFB9 /* wifi@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,11 +249,12 @@
 			files = (
 				CABD328E16041C3300B828DC /* main.m in Sources */,
 				CABD329216041C3300B828DC /* KRAppDelegate.m in Sources */,
-				CABD329816041C3300B828DC /* KRFirstViewController.m in Sources */,
+				CABD329816041C3300B828DC /* KRNowPlayingController.m in Sources */,
 				CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */,
 				CABD32B016041E7700B828DC /* AudioStreamer.m in Sources */,
 				CABD32B316041FD600B828DC /* UIDevice+Hardware.m in Sources */,
 				CA3532D3160453E000E8A5DC /* JSONKit.m in Sources */,
+				CA79A75A1605108000FBF56C /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

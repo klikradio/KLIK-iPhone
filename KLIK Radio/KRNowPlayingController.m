@@ -6,36 +6,51 @@
 //  Copyright (c) 2012 KLIK Radio. All rights reserved.
 //
 
-#import "KRFirstViewController.h"
+#import "KRNowPlayingController.h"
+#import "Reachability.h"
 
-@interface KRFirstViewController ()
+@interface KRNowPlayingController ()
 
 @end
 
-@implementation KRFirstViewController
+@implementation KRNowPlayingController
 
 - (void)startStream {
-    streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://majestic.wavestreamer.com:3238/"]];
-    [streamer start];
     
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(newSong:)
-     name:ASUpdateMetadataNotification
-     object:streamer];
-    
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(streamChanged:)
-     name:ASStatusChangedNotification
-     object:streamer];
+    Reachability *reach = [Reachability reachabilityForInternetConnection];
+    if ([reach currentReachabilityStatus] == ReachableViaWiFi) {
+        streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://majestic.wavestreamer.com:3238/"]];
+        [streamer start];
+        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(newSong:)
+         name:ASUpdateMetadataNotification
+         object:streamer];
+        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(streamChanged:)
+         name:ASStatusChangedNotification
+         object:streamer];
+    }
+    else {
+        UIAlertView *sorry = [[UIAlertView alloc] initWithTitle:@"No Wi-fi" message:@"Sorry, but KLIK currently doesn't have a mobile stream." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [sorry show];
+        
+        [NowPlayingBuffering stopAnimating];
+        [NowPlayingArtist setText:@"Wi-Fi Required"];
+        [NowPlayingTitle setText:@""];
+        [NowPlayingStop setTitle:@"Play" forState:UIControlStateNormal];
+        [NowPlayingImage setImage:[UIImage imageNamed:@"wifi.png"]];
+    }
 }
 
 - (void) stopStream {
     [streamer stop];
     streamer = nil;
     
-    [NowPlayingStop setTitle:@"Start" forState:UIControlStateNormal];
+    [NowPlayingStop setTitle:@"Play" forState:UIControlStateNormal];
     [NowPlayingBuffering stopAnimating];
 }
 
@@ -44,7 +59,6 @@
     [super viewDidLoad];
     
     NowPlayingVolume.backgroundColor = [UIColor clearColor];
-    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     
     [self startStream];
@@ -131,7 +145,8 @@
 }
 
 - (IBAction)BuySongPressed:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms://WebObjects/MZSearch.woa/wa/advancedSearchResults?songTerm=say%20something&artistTerm=austin%20mahone"]];
+    NSURL *iTunes = [NSURL URLWithString:[[NSString stringWithFormat:@"itms://WebObjects/MZSearch.woa/wa/advancedSearchResults?songTerm=%@&artistTerm=%@", NowPlayingTitle.text, NowPlayingArtist.text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    [[UIApplication sharedApplication] openURL:iTunes];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

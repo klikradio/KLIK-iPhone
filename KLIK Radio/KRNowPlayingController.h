@@ -10,8 +10,9 @@
 #import "AudioStreamer.h"
 #import "JSONKit.h"
 #import <MediaPlayer/MediaPlayer.h>
+#include "Reachability.h"
 
-@interface KRFirstViewController : UIViewController
+@interface KRNowPlayingController : UIViewController
 {
     AudioStreamer *streamer;
     IBOutlet UIActivityIndicatorView *NowPlayingBuffering;

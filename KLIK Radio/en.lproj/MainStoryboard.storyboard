@@ -6,11 +6,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
-        <!--First View Controller-->
+        <!--Now Playing Controller-->
         <scene sceneID="1xV-Zs-aN9">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tv4-Zk-S67" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="lQu-Lo-YfT" customClass="KRFirstViewController" sceneMemberID="viewController">
+                <viewController id="lQu-Lo-YfT" customClass="KRNowPlayingController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hIC-MD-2NG">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
