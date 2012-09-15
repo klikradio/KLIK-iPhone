@@ -20,6 +20,14 @@
 		CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329E16041C3300B828DC /* KRSecondViewController.m */; };
 		CABD32A116041C3300B828DC /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32A016041C3300B828DC /* second.png */; };
 		CABD32A316041C3300B828DC /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32A216041C3300B828DC /* second@2x.png */; };
+		CABD32B016041E7700B828DC /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD32AF16041E7700B828DC /* AudioStreamer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CABD32B316041FD600B828DC /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD32B216041FD600B828DC /* UIDevice+Hardware.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CABD32B5160420A900B828DC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B4160420A900B828DC /* MediaPlayer.framework */; };
+		CABD32B7160420AE00B828DC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B6160420AE00B828DC /* AudioToolbox.framework */; };
+		CABD32B9160420B300B828DC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B8160420B300B828DC /* CFNetwork.framework */; };
+		CABD32BB1604214600B828DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32BA1604214600B828DC /* QuartzCore.framework */; };
+		CABD32C01604388E00B828DC /* retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32BF1604388E00B828DC /* retina.png */; };
+		CABD32C2160439CB00B828DC /* nonretina.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32C1160439CB00B828DC /* nonretina.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +50,16 @@
 		CABD329E16041C3300B828DC /* KRSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRSecondViewController.m; sourceTree = "<group>"; };
 		CABD32A016041C3300B828DC /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		CABD32A216041C3300B828DC /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		CABD32AE16041E7600B828DC /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
+		CABD32AF16041E7700B828DC /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
+		CABD32B116041FD600B828DC /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Hardware.h"; sourceTree = "<group>"; };
+		CABD32B216041FD600B828DC /* UIDevice+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Hardware.m"; sourceTree = "<group>"; };
+		CABD32B4160420A900B828DC /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		CABD32B6160420AE00B828DC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CABD32B8160420B300B828DC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CABD32BA1604214600B828DC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CABD32BF1604388E00B828DC /* retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retina.png; sourceTree = "<group>"; };
+		CABD32C1160439CB00B828DC /* nonretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nonretina.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +67,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CABD32BB1604214600B828DC /* QuartzCore.framework in Frameworks */,
+				CABD32B9160420B300B828DC /* CFNetwork.framework in Frameworks */,
+				CABD32B7160420AE00B828DC /* AudioToolbox.framework in Frameworks */,
+				CABD32B5160420A900B828DC /* MediaPlayer.framework in Frameworks */,
 				CABD328216041C3200B828DC /* UIKit.framework in Frameworks */,
 				CABD328416041C3300B828DC /* Foundation.framework in Frameworks */,
 				CABD328616041C3300B828DC /* CoreGraphics.framework in Frameworks */,
@@ -61,6 +83,8 @@
 		CABD327216041C3200B828DC = {
 			isa = PBXGroup;
 			children = (
+				CABD32C1160439CB00B828DC /* nonretina.png */,
+				CABD32BF1604388E00B828DC /* retina.png */,
 				CABD328716041C3300B828DC /* KLIK Radio */,
 				CABD328016041C3200B828DC /* Frameworks */,
 				CABD327E16041C3200B828DC /* Products */,
@@ -78,6 +102,10 @@
 		CABD328016041C3200B828DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CABD32BA1604214600B828DC /* QuartzCore.framework */,
+				CABD32B8160420B300B828DC /* CFNetwork.framework */,
+				CABD32B6160420AE00B828DC /* AudioToolbox.framework */,
+				CABD32B4160420A900B828DC /* MediaPlayer.framework */,
 				CABD328116041C3200B828DC /* UIKit.framework */,
 				CABD328316041C3200B828DC /* Foundation.framework */,
 				CABD328516041C3300B828DC /* CoreGraphics.framework */,
@@ -88,6 +116,7 @@
 		CABD328716041C3300B828DC /* KLIK Radio */ = {
 			isa = PBXGroup;
 			children = (
+				CABD32BC1604215A00B828DC /* Audio */,
 				CABD329016041C3300B828DC /* KRAppDelegate.h */,
 				CABD329116041C3300B828DC /* KRAppDelegate.m */,
 				CABD329316041C3300B828DC /* MainStoryboard.storyboard */,
@@ -113,6 +142,17 @@
 				CABD328F16041C3300B828DC /* KLIK Radio-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CABD32BC1604215A00B828DC /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				CABD32B116041FD600B828DC /* UIDevice+Hardware.h */,
+				CABD32B216041FD600B828DC /* UIDevice+Hardware.m */,
+				CABD32AE16041E7600B828DC /* AudioStreamer.h */,
+				CABD32AF16041E7700B828DC /* AudioStreamer.m */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +213,8 @@
 				CABD329C16041C3300B828DC /* first@2x.png in Resources */,
 				CABD32A116041C3300B828DC /* second.png in Resources */,
 				CABD32A316041C3300B828DC /* second@2x.png in Resources */,
+				CABD32C01604388E00B828DC /* retina.png in Resources */,
+				CABD32C2160439CB00B828DC /* nonretina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +229,8 @@
 				CABD329216041C3300B828DC /* KRAppDelegate.m in Sources */,
 				CABD329816041C3300B828DC /* KRFirstViewController.m in Sources */,
 				CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */,
+				CABD32B016041E7700B828DC /* AudioStreamer.m in Sources */,
+				CABD32B316041FD600B828DC /* UIDevice+Hardware.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

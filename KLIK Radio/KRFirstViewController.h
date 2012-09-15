@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AudioStreamer.h"
 
 @interface KRFirstViewController : UIViewController
+{
+    AudioStreamer *streamer;
+    IBOutlet UILabel *TempNP;
+}
 
 @end
