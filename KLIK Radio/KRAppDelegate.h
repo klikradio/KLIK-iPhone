@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KRNowPlayingController.h"
 
 @interface KRAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) KRNowPlayingController *controller;
 
 @end

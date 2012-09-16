@@ -101,6 +101,7 @@ OSStatus MyEnqueueBuffer(AudioStreamer* myData);
 
 #if TARGET_OS_IPHONE			
 void MyAudioSessionInterruptionListener(void *inClientData, UInt32 inInterruptionState);
+void PropListener(void *inClientData, AudioSessionPropertyID inID, UInt32 inDataSize, const void *inData);
 #endif
 
 #pragma mark Audio Callback Function Implementations
@@ -820,6 +821,7 @@ void ASReadStreamCallBack
 			sizeof (sessionCategory),
 			&sessionCategory
 		);
+        AudioSessionAddPropertyListener(kAudioSessionProperty_AudioRouteChange, PropListener, self);
 		AudioSessionSetActive(true);
 		__streamer = self;
 	#endif
@@ -2420,6 +2422,16 @@ cleanup:
 	}
 }
 #endif
+
+void PropListener(void *inClientData, AudioSessionPropertyID inID, UInt32 inDatSize, const void *inData)
+{
+    NSDictionary *inDict = (NSDictionary *)inData;
+    if ([[inDict objectForKey:@"OutputDeviceDidChange_Reason"] intValue] == 2)
+    {
+        [__streamer pause];
+    }
+    NSLog(@"NEW ROUTE IS: %@", [inDict objectForKey:@"OutputDeviceDidChange_NewRoute"]);
+}
 
 @end
 

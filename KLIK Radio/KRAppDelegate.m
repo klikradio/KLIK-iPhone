@@ -7,8 +7,11 @@
 //
 
 #import "KRAppDelegate.h"
+#import "KRNowPlayingController.h"
 
 @implementation KRAppDelegate
+
+@synthesize controller;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -41,6 +44,19 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void) remoteControlReceivedWithEvent:(UIEvent *)event
+{
+    if (event.type == UIEventTypeRemoteControl)
+    {
+        switch (event.subtype)
+        {
+            case UIEventSubtypeRemoteControlTogglePlayPause:
+                [controller StopPressed:nil];
+                break;
+        }
+    }
 }
 
 @end

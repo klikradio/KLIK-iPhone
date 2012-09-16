@@ -11,6 +11,10 @@
 		CA79A752160506F800FBF56C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = CA79A751160506F800FBF56C /* background.png */; };
 		CA79A75A1605108000FBF56C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CA79A7591605108000FBF56C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CA79A75C1605111300FBF56C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA79A75B1605111300FBF56C /* SystemConfiguration.framework */; };
+		CAB79453160540E90027AA6B /* noalbum.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB79451160540E90027AA6B /* noalbum.png */; };
+		CAB79454160540E90027AA6B /* noalbum@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB79452160540E90027AA6B /* noalbum@2x.png */; };
+		CAB79457160548B90027AA6B /* bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB79456160548B90027AA6B /* bg2.png */; };
+		CAB7945916054B370027AA6B /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB7945816054B370027AA6B /* bg2@2x.png */; };
 		CABD328216041C3200B828DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328116041C3200B828DC /* UIKit.framework */; };
 		CABD328416041C3300B828DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328316041C3200B828DC /* Foundation.framework */; };
 		CABD328616041C3300B828DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328516041C3300B828DC /* CoreGraphics.framework */; };
@@ -42,6 +46,10 @@
 		CA79A7581605108000FBF56C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		CA79A7591605108000FBF56C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		CA79A75B1605111300FBF56C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CAB79451160540E90027AA6B /* noalbum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noalbum.png; path = "KLIK Radio/noalbum.png"; sourceTree = "<group>"; };
+		CAB79452160540E90027AA6B /* noalbum@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "noalbum@2x.png"; path = "KLIK Radio/noalbum@2x.png"; sourceTree = "<group>"; };
+		CAB79456160548B90027AA6B /* bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg2.png; path = "KLIK Radio/bg2.png"; sourceTree = "<group>"; };
+		CAB7945816054B370027AA6B /* bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg2@2x.png"; path = "KLIK Radio/bg2@2x.png"; sourceTree = "<group>"; };
 		CABD327D16041C3200B828DC /* KLIK Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KLIK Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABD328116041C3200B828DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CABD328316041C3200B828DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,6 +104,10 @@
 		CABD327216041C3200B828DC = {
 			isa = PBXGroup;
 			children = (
+				CAB7945816054B370027AA6B /* bg2@2x.png */,
+				CAB79456160548B90027AA6B /* bg2.png */,
+				CAB79451160540E90027AA6B /* noalbum.png */,
+				CAB79452160540E90027AA6B /* noalbum@2x.png */,
 				CAC411D5160515F200B9EFB9 /* wifi.png */,
 				CAC411D6160515F200B9EFB9 /* wifi@2x.png */,
 				CA79A751160506F800FBF56C /* background.png */,
@@ -237,6 +249,10 @@
 				CA79A752160506F800FBF56C /* background.png in Resources */,
 				CAC411D7160515F200B9EFB9 /* wifi.png in Resources */,
 				CAC411D8160515F200B9EFB9 /* wifi@2x.png in Resources */,
+				CAB79453160540E90027AA6B /* noalbum.png in Resources */,
+				CAB79454160540E90027AA6B /* noalbum@2x.png in Resources */,
+				CAB79457160548B90027AA6B /* bg2.png in Resources */,
+				CAB7945916054B370027AA6B /* bg2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

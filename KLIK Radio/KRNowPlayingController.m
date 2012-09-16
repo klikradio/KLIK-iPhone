@@ -8,6 +8,7 @@
 
 #import "KRNowPlayingController.h"
 #import "Reachability.h"
+#import "KRAppDelegate.h"
 
 @interface KRNowPlayingController ()
 
@@ -15,26 +16,46 @@
 
 @implementation KRNowPlayingController
 
-- (void)startStream {
+- (void)viewDidLoad
+{
+    [(KRAppDelegate *)[[UIApplication sharedApplication] delegate] setController:self];
     
+    [super viewDidLoad];
+    
+    NowPlayingVolume.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg2.png"]];
+    
+    [self startStream];
+}
+
+
+- (void)startStream
+{
     Reachability *reach = [Reachability reachabilityForInternetConnection];
-    if ([reach currentReachabilityStatus] == ReachableViaWiFi) {
-        streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://majestic.wavestreamer.com:3238/"]];
-        [streamer start];
-        
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         selector:@selector(newSong:)
-         name:ASUpdateMetadataNotification
-         object:streamer];
-        
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         selector:@selector(streamChanged:)
-         name:ASStatusChangedNotification
-         object:streamer];
+    if ([reach currentReachabilityStatus] == ReachableViaWiFi)
+    {
+        if (streamer == nil)
+        {
+            streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://majestic.wavestreamer.com:3238/"]];
+            
+            [[NSNotificationCenter defaultCenter]
+             addObserver:self
+             selector:@selector(newSong:)
+             name:ASUpdateMetadataNotification
+             object:streamer];
+            
+            [[NSNotificationCenter defaultCenter]
+             addObserver:self
+             selector:@selector(streamChanged:)
+             name:ASStatusChangedNotification
+             object:streamer];
+            
+            [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+            [streamer start];
+        }
     }
-    else {
+    else
+    {
         UIAlertView *sorry = [[UIAlertView alloc] initWithTitle:@"No Wi-fi" message:@"Sorry, but KLIK currently doesn't have a mobile stream." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [sorry show];
         
@@ -43,27 +64,74 @@
         [NowPlayingTitle setText:@""];
         [NowPlayingStop setTitle:@"Play" forState:UIControlStateNormal];
         [NowPlayingImage setImage:[UIImage imageNamed:@"wifi.png"]];
+        
+        [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     }
 }
 
-- (void) stopStream {
+- (void) stopStream
+{
     [streamer stop];
     streamer = nil;
     
     [NowPlayingStop setTitle:@"Play" forState:UIControlStateNormal];
     [NowPlayingBuffering stopAnimating];
+    [NowPlayingArtist setText:@""];
+    [NowPlayingTitle setText:@""];
+    [NowPlayingImage setImage:[UIImage imageNamed:@"noalbum.png"]];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    NowPlayingVolume.backgroundColor = [UIColor clearColor];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
-    
-    [self startStream];
-	// Do any additional setup after loading the view, typically from a nib.
+- (void) streamChanged:(NSNotification *)notification
+{/*
+#if DEBUG
+    switch ([streamer state])
+    {
+        case AS_INITIALIZED:
+            NSLog(@"AsInitialized");
+            break;
+        case AS_STARTING_FILE_THREAD:
+            NSLog(@"As starting file thread");
+            break;
+        case AS_WAITING_FOR_DATA:
+            NSLog(@"As waiting for data");
+            break;
+        case AS_BUFFERING:
+            NSLog(@"Buffering");
+            break;
+        case AS_FLUSHING_EOF:
+            NSLog(@"Flushing EOF");
+            break;
+        case AS_PAUSED:
+            NSLog(@"Paused");
+            break;
+        case AS_PLAYING:
+            NSLog(@"Playing");
+            break;
+        case AS_STOPPED:
+            NSLog(@"Stopped");
+            break;
+        case AS_STOPPING:
+            NSLog(@"STopping");
+            break;
+        case AS_WAITING_FOR_QUEUE_TO_START:
+            NSLog(@"Waiting for queue to start");
+            break;
+            
+    }
+#endif*/
+    if ([streamer isWaiting]) {
+        [NowPlayingBuffering startAnimating];
+    }
+    else if ([streamer isPlaying]) {
+        [NowPlayingBuffering stopAnimating];
+        [NowPlayingStop setTitle:@"Stop" forState:UIControlStateNormal];
+    }
+    else if ([streamer isPaused])
+    {
+        [NowPlayingStop setTitle:@"Play" forState:UIControlStateNormal];
+    }
 }
+
 
 - (void) newSong:(NSNotification *)notification
 {
@@ -73,16 +141,19 @@
     NSArray *metaParts = [[[notification userInfo] objectForKey:@"metadata"] componentsSeparatedByString:@";"];
     NSString *item;
     NSMutableDictionary *hash = [[NSMutableDictionary alloc] init];
-    for (item in metaParts) {
+    for (item in metaParts)
+    {
         NSArray *pair = [item componentsSeparatedByString:@"="];
-        if ([pair count] == 2) {
+        if ([pair count] == 2)
+        {
             [hash setObject:[pair objectAtIndex:1] forKey:[pair objectAtIndex:0]];
         }
     }
     
     NSString *streamString = [hash objectForKey:@"StreamTitle"]; // stringByReplacingOccurrencesOfString:@"" withString:@""];
     NSArray *streamParts = [streamString componentsSeparatedByString:@" - "];
-    if ([streamParts count] == 1) {
+    if ([streamParts count] == 1)
+    {
         streamArtist = @"";
         streamTitle = [[streamParts objectAtIndex:0] substringFromIndex:1];
     }
@@ -97,30 +168,60 @@
     NSURL *albumRealURL = [NSURL URLWithString:[albumURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSData *albumJSON = [NSData dataWithContentsOfURL:albumRealURL];
     
+    BOOL bAlbumArtAdded = NO;
     NSDictionary *trackData = [[albumJSON objectFromJSONData] objectForKey:@"track"];
-    if (trackData != nil) {
+    if (trackData != nil)
+    {
         NSDictionary *albumData = [trackData objectForKey:@"album"];
-        if (albumData != nil) {
+        if (albumData != nil)
+        {
             NSArray *images = [albumData objectForKey:@"image"];
-            if (images != nil) {
+            if (images != nil)
+            {
                 [NowPlayingImage setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[images objectAtIndex:[images count] - 1] objectForKey:@"#text"]]]]];
+                bAlbumArtAdded = YES;
             }
         }
+    }
+    if (!bAlbumArtAdded)
+    {
+        [NowPlayingImage setImage:[UIImage imageNamed:@"noalbum.png"]];
     }
 
     [NowPlayingArtist setText:streamArtist];
     [NowPlayingTitle setText:streamTitle];
 }
 
-- (void) streamChanged:(NSNotification *)notification
+
+- (IBAction)StopPressed:(id)sender
 {
-    if ([streamer isWaiting]) {
-        [NowPlayingBuffering startAnimating];
+    if (streamer == nil)
+    {
+        NSLog(@"Start stream because streamer == nil");
+        [self startStream];
     }
-    else if ([streamer isPlaying]) {
-        [NowPlayingBuffering stopAnimating];
-        [NowPlayingStop setTitle:@"Stop" forState:UIControlStateNormal];
+    else
+    {
+        if ([streamer isPlaying] || streamer.state == AS_INITIALIZED)
+        {
+            [self stopStream];
+        }
+        else
+        {
+            [self startStream];
+        }
     }
+}
+
+- (IBAction)BuySongPressed:(id)sender
+{
+    NSURL *iTunes = [NSURL URLWithString:[[NSString stringWithFormat:@"itms://WebObjects/MZSearch.woa/wa/advancedSearchResults?songTerm=%@&artistTerm=%@", NowPlayingTitle.text, NowPlayingArtist.text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    [[UIApplication sharedApplication] openURL:iTunes];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 - (void)viewDidUnload
@@ -133,25 +234,6 @@
     NowPlayingStop = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-}
-
-- (IBAction)StopPressed:(id)sender {
-    if ([streamer isPlaying]) {
-        [self stopStream];
-    }
-    else {
-        [self startStream];
-    }
-}
-
-- (IBAction)BuySongPressed:(id)sender {
-    NSURL *iTunes = [NSURL URLWithString:[[NSString stringWithFormat:@"itms://WebObjects/MZSearch.woa/wa/advancedSearchResults?songTerm=%@&artistTerm=%@", NowPlayingTitle.text, NowPlayingArtist.text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    [[UIApplication sharedApplication] openURL:iTunes];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 @end
