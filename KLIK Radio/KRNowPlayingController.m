@@ -82,43 +82,7 @@
 }
 
 - (void) streamChanged:(NSNotification *)notification
-{/*
-#if DEBUG
-    switch ([streamer state])
-    {
-        case AS_INITIALIZED:
-            NSLog(@"AsInitialized");
-            break;
-        case AS_STARTING_FILE_THREAD:
-            NSLog(@"As starting file thread");
-            break;
-        case AS_WAITING_FOR_DATA:
-            NSLog(@"As waiting for data");
-            break;
-        case AS_BUFFERING:
-            NSLog(@"Buffering");
-            break;
-        case AS_FLUSHING_EOF:
-            NSLog(@"Flushing EOF");
-            break;
-        case AS_PAUSED:
-            NSLog(@"Paused");
-            break;
-        case AS_PLAYING:
-            NSLog(@"Playing");
-            break;
-        case AS_STOPPED:
-            NSLog(@"Stopped");
-            break;
-        case AS_STOPPING:
-            NSLog(@"STopping");
-            break;
-        case AS_WAITING_FOR_QUEUE_TO_START:
-            NSLog(@"Waiting for queue to start");
-            break;
-            
-    }
-#endif*/
+{
     if ([streamer isWaiting]) {
         [NowPlayingBuffering startAnimating];
     }
@@ -150,7 +114,7 @@
         }
     }
     
-    NSString *streamString = [hash objectForKey:@"StreamTitle"]; // stringByReplacingOccurrencesOfString:@"" withString:@""];
+    NSString *streamString = [hash objectForKey:@"StreamTitle"];
     NSArray *streamParts = [streamString componentsSeparatedByString:@" - "];
     if ([streamParts count] == 1)
     {
@@ -195,9 +159,45 @@
 
 - (IBAction)StopPressed:(id)sender
 {
+    
+     #if DEBUG
+     switch ([streamer state])
+     {
+     case AS_INITIALIZED:
+     NSLog(@"AsInitialized");
+     break;
+     case AS_STARTING_FILE_THREAD:
+     NSLog(@"As starting file thread");
+     break;
+     case AS_WAITING_FOR_DATA:
+     NSLog(@"As waiting for data");
+     break;
+     case AS_BUFFERING:
+     NSLog(@"Buffering");
+     break;
+     case AS_FLUSHING_EOF:
+     NSLog(@"Flushing EOF");
+     break;
+     case AS_PAUSED:
+     NSLog(@"Paused");
+     break;
+     case AS_PLAYING:
+     NSLog(@"Playing");
+     break;
+     case AS_STOPPED:
+     NSLog(@"Stopped");
+     break;
+     case AS_STOPPING:
+     NSLog(@"STopping");
+     break;
+     case AS_WAITING_FOR_QUEUE_TO_START:
+     NSLog(@"Waiting for queue to start");
+     break;
+     
+     }
+     #endif
     if (streamer == nil)
     {
-        NSLog(@"Start stream because streamer == nil");
         [self startStream];
     }
     else
@@ -208,7 +208,14 @@
         }
         else
         {
-            [self startStream];
+            if ([streamer isPaused])
+            {
+                [streamer start];
+            }
+            else
+            {
+                [self startStream];
+            }
         }
     }
 }
@@ -232,6 +239,7 @@
     NowPlayingBuffering = nil;
     NowPlayingVolume = nil;
     NowPlayingStop = nil;
+    NowPlayingBuy = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

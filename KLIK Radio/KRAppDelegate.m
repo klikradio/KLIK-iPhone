@@ -55,6 +55,8 @@
             case UIEventSubtypeRemoteControlTogglePlayPause:
                 [controller StopPressed:nil];
                 break;
+            default:
+                break;
         }
     }
 }

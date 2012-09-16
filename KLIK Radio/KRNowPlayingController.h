@@ -21,6 +21,7 @@
     IBOutlet UILabel *NowPlayingArtist;
     IBOutlet UIView *NowPlayingVolume;
     IBOutlet UIButton *NowPlayingStop;
+    IBOutlet UIButton *NowPlayingBuy;
     
     MPVolumeView *mpv;
 }
