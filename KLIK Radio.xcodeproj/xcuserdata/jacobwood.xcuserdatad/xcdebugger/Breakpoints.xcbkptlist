@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "KLIK Radio/KRNowPlayingController.m"
-         timestampString = "369556890.750584"
+         timestampString = "369603226.689209"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "256"
-         endingLineNumber = "256"
+         startingLineNumber = "266"
+         endingLineNumber = "266"
          landmarkName = "-StopPressed:"
          landmarkType = "5">
       </FileBreakpoint>

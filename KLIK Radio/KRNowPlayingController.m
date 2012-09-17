@@ -232,6 +232,16 @@ switch ([streamer state])
 
     [NowPlayingArtist setText:streamArtist];
     [NowPlayingTitle setText:streamTitle];
+    
+    Class NPInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
+    if (NPInfoCenter)
+    {
+        MPNowPlayingInfoCenter *nowPlaying = [MPNowPlayingInfoCenter defaultCenter];
+        NSDictionary *songInfo = [NSDictionary dictionaryWithObjectsAndKeys:streamArtist, MPMediaItemPropertyArtist,
+                                  streamTitle, MPMediaItemPropertyTitle,
+                                  @"KLIK Radio", MPMediaItemPropertyAlbumTitle, nil];
+        nowPlaying.nowPlayingInfo = songInfo;
+    }
 }
 
 - (void)streamError:(NSNotification *)notification
@@ -299,6 +309,9 @@ switch ([streamer state])
             }
         }
     }
+}
+
+- (IBAction)PauseDown:(id)sender {
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

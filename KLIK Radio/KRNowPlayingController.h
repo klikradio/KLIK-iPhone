@@ -30,6 +30,7 @@
 
 - (IBAction)StopPressed:(id)sender;
 - (IBAction)BuySongPressed:(id)sender;
+- (IBAction)PauseDown:(id)sender;
 
 - (void)startStream;
 
