@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import "AudioStreamer.h"
 #import "JSONKit.h"
-#import <MediaPlayer/MediaPlayer.h>
 #include "Reachability.h"
 
 @interface KRNowPlayingController : UIViewController

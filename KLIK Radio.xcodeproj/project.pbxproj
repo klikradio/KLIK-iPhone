@@ -31,6 +31,10 @@
 		CABD32B7160420AE00B828DC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B6160420AE00B828DC /* AudioToolbox.framework */; };
 		CABD32B9160420B300B828DC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B8160420B300B828DC /* CFNetwork.framework */; };
 		CABD32BB1604214600B828DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32BA1604214600B828DC /* QuartzCore.framework */; };
+		CAC707A31606EB6800222C3C /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D92E71606D59F00F2F728 /* AudioStreamer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CAC707A41606EB6800222C3C /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D92E91606D59F00F2F728 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CAC707A51606EB6800222C3C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D92EB1606D59F00F2F728 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CAC707A61606EB6800222C3C /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D92ED1606D59F00F2F728 /* UIDevice+Hardware.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,14 +49,14 @@
 		CA9D92D91606D59100F2F728 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "Images/second@2x.png"; sourceTree = "<group>"; };
 		CA9D92DA1606D59100F2F728 /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wifi.png; path = Images/wifi.png; sourceTree = "<group>"; };
 		CA9D92DB1606D59100F2F728 /* wifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi@2x.png"; path = "Images/wifi@2x.png"; sourceTree = "<group>"; };
-		CA9D92E61606D59F00F2F728 /* AudioStreamer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudioStreamer.h; path = OpenSource/AudioStreamer.h; sourceTree = "<group>"; };
-		CA9D92E71606D59F00F2F728 /* AudioStreamer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AudioStreamer.m; path = OpenSource/AudioStreamer.m; sourceTree = "<group>"; };
-		CA9D92E81606D59F00F2F728 /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = OpenSource/JSONKit.h; sourceTree = "<group>"; };
-		CA9D92E91606D59F00F2F728 /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = OpenSource/JSONKit.m; sourceTree = "<group>"; };
-		CA9D92EA1606D59F00F2F728 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = OpenSource/Reachability.h; sourceTree = "<group>"; };
-		CA9D92EB1606D59F00F2F728 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = OpenSource/Reachability.m; sourceTree = "<group>"; };
-		CA9D92EC1606D59F00F2F728 /* UIDevice+Hardware.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIDevice+Hardware.h"; path = "OpenSource/UIDevice+Hardware.h"; sourceTree = "<group>"; };
-		CA9D92ED1606D59F00F2F728 /* UIDevice+Hardware.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+Hardware.m"; path = "OpenSource/UIDevice+Hardware.m"; sourceTree = "<group>"; };
+		CA9D92E61606D59F00F2F728 /* AudioStreamer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudioStreamer.h; path = ../OpenSource/AudioStreamer.h; sourceTree = "<group>"; };
+		CA9D92E71606D59F00F2F728 /* AudioStreamer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AudioStreamer.m; path = ../OpenSource/AudioStreamer.m; sourceTree = "<group>"; };
+		CA9D92E81606D59F00F2F728 /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = ../OpenSource/JSONKit.h; sourceTree = "<group>"; };
+		CA9D92E91606D59F00F2F728 /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = ../OpenSource/JSONKit.m; sourceTree = "<group>"; };
+		CA9D92EA1606D59F00F2F728 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../OpenSource/Reachability.h; sourceTree = "<group>"; };
+		CA9D92EB1606D59F00F2F728 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../OpenSource/Reachability.m; sourceTree = "<group>"; };
+		CA9D92EC1606D59F00F2F728 /* UIDevice+Hardware.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIDevice+Hardware.h"; path = "../OpenSource/UIDevice+Hardware.h"; sourceTree = "<group>"; };
+		CA9D92ED1606D59F00F2F728 /* UIDevice+Hardware.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+Hardware.m"; path = "../OpenSource/UIDevice+Hardware.m"; sourceTree = "<group>"; };
 		CABD327D16041C3200B828DC /* KLIK Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KLIK Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABD328116041C3200B828DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CABD328316041C3200B828DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,21 +97,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CA9D92D01606D57200F2F728 /* OpenSource */ = {
-			isa = PBXGroup;
-			children = (
-				CA9D92E61606D59F00F2F728 /* AudioStreamer.h */,
-				CA9D92E71606D59F00F2F728 /* AudioStreamer.m */,
-				CA9D92E81606D59F00F2F728 /* JSONKit.h */,
-				CA9D92E91606D59F00F2F728 /* JSONKit.m */,
-				CA9D92EA1606D59F00F2F728 /* Reachability.h */,
-				CA9D92EB1606D59F00F2F728 /* Reachability.m */,
-				CA9D92EC1606D59F00F2F728 /* UIDevice+Hardware.h */,
-				CA9D92ED1606D59F00F2F728 /* UIDevice+Hardware.m */,
-			);
-			name = OpenSource;
-			sourceTree = "<group>";
-		};
 		CAB7945A160578260027AA6B /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +117,7 @@
 		CABD327216041C3200B828DC = {
 			isa = PBXGroup;
 			children = (
-				CA9D92D01606D57200F2F728 /* OpenSource */,
+				CAC707A71606EBA400222C3C /* Open Source */,
 				CAB7945A160578260027AA6B /* Images */,
 				CABD328716041C3300B828DC /* KLIK Radio */,
 				CABD328016041C3200B828DC /* Frameworks */,
@@ -183,6 +172,22 @@
 				CABD328F16041C3300B828DC /* KLIK Radio-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CAC707A71606EBA400222C3C /* Open Source */ = {
+			isa = PBXGroup;
+			children = (
+				CA9D92E61606D59F00F2F728 /* AudioStreamer.h */,
+				CA9D92E71606D59F00F2F728 /* AudioStreamer.m */,
+				CA9D92E81606D59F00F2F728 /* JSONKit.h */,
+				CA9D92E91606D59F00F2F728 /* JSONKit.m */,
+				CA9D92EA1606D59F00F2F728 /* Reachability.h */,
+				CA9D92EB1606D59F00F2F728 /* Reachability.m */,
+				CA9D92EC1606D59F00F2F728 /* UIDevice+Hardware.h */,
+				CA9D92ED1606D59F00F2F728 /* UIDevice+Hardware.m */,
+			);
+			name = "Open Source";
+			path = "KLIK Radio";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAC707A31606EB6800222C3C /* AudioStreamer.m in Sources */,
+				CAC707A41606EB6800222C3C /* JSONKit.m in Sources */,
+				CAC707A51606EB6800222C3C /* Reachability.m in Sources */,
+				CAC707A61606EB6800222C3C /* UIDevice+Hardware.m in Sources */,
 				CABD328E16041C3300B828DC /* main.m in Sources */,
 				CABD329216041C3300B828DC /* KRAppDelegate.m in Sources */,
 				CABD329816041C3300B828DC /* KRNowPlayingController.m in Sources */,
