@@ -222,8 +222,19 @@
 
 - (IBAction)BuySongPressed:(id)sender
 {
+    NSString *searchURL = [NSString stringWithFormat:@"http://itunes.apple.com/search?term=%@ %@", NowPlayingArtist.text, NowPlayingTitle.text];
+    NSData *searchData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[searchURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    NSDictionary *searchDict = [searchData objectFromJSONData];
+    NSArray *searchResults = [searchDict objectForKey:@"results"];
+    NSDictionary *searchResult = [searchResults objectAtIndex:0];
+    
+    NSString *viewURL = [NSString stringWithFormat:@"itms://%@", [[searchResult objectForKey:@"trackViewUrl"] substringFromIndex:7]];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:viewURL]];
+    
+    /*
     NSURL *iTunes = [NSURL URLWithString:[[NSString stringWithFormat:@"itms://WebObjects/MZSearch.woa/wa/advancedSearchResults?songTerm=%@&artistTerm=%@", NowPlayingTitle.text, NowPlayingArtist.text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    [[UIApplication sharedApplication] openURL:iTunes];
+    [[UIApplication sharedApplication] openURL:iTunes];*/
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
