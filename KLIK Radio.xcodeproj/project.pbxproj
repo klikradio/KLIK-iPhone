@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA3532D3160453E000E8A5DC /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3532D2160453E000E8A5DC /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		CA79A752160506F800FBF56C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = CA79A751160506F800FBF56C /* background.png */; };
-		CA79A75A1605108000FBF56C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CA79A7591605108000FBF56C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CA79A75C1605111300FBF56C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA79A75B1605111300FBF56C /* SystemConfiguration.framework */; };
-		CAB79453160540E90027AA6B /* noalbum.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB79451160540E90027AA6B /* noalbum.png */; };
-		CAB79454160540E90027AA6B /* noalbum@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB79452160540E90027AA6B /* noalbum@2x.png */; };
-		CAB79457160548B90027AA6B /* bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB79456160548B90027AA6B /* bg2.png */; };
-		CAB7945916054B370027AA6B /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB7945816054B370027AA6B /* bg2@2x.png */; };
+		CA9D92DC1606D59100F2F728 /* bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D21606D59100F2F728 /* bg2.png */; };
+		CA9D92DD1606D59100F2F728 /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D31606D59100F2F728 /* bg2@2x.png */; };
+		CA9D92DE1606D59100F2F728 /* noalbum.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D41606D59100F2F728 /* noalbum.png */; };
+		CA9D92DF1606D59100F2F728 /* noalbum@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D51606D59100F2F728 /* noalbum@2x.png */; };
+		CA9D92E01606D59100F2F728 /* nonretina.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D61606D59100F2F728 /* nonretina.png */; };
+		CA9D92E11606D59100F2F728 /* retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D71606D59100F2F728 /* retina.png */; };
+		CA9D92E21606D59100F2F728 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D81606D59100F2F728 /* second.png */; };
+		CA9D92E31606D59100F2F728 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D91606D59100F2F728 /* second@2x.png */; };
+		CA9D92E41606D59100F2F728 /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92DA1606D59100F2F728 /* wifi.png */; };
+		CA9D92E51606D59100F2F728 /* wifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92DB1606D59100F2F728 /* wifi@2x.png */; };
 		CABD328216041C3200B828DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328116041C3200B828DC /* UIKit.framework */; };
 		CABD328416041C3300B828DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328316041C3200B828DC /* Foundation.framework */; };
 		CABD328616041C3300B828DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328516041C3300B828DC /* CoreGraphics.framework */; };
@@ -24,32 +27,32 @@
 		CABD329516041C3300B828DC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABD329316041C3300B828DC /* MainStoryboard.storyboard */; };
 		CABD329816041C3300B828DC /* KRNowPlayingController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329716041C3300B828DC /* KRNowPlayingController.m */; };
 		CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329E16041C3300B828DC /* KRSecondViewController.m */; };
-		CABD32A116041C3300B828DC /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32A016041C3300B828DC /* second.png */; };
-		CABD32A316041C3300B828DC /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32A216041C3300B828DC /* second@2x.png */; };
-		CABD32B016041E7700B828DC /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD32AF16041E7700B828DC /* AudioStreamer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		CABD32B316041FD600B828DC /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD32B216041FD600B828DC /* UIDevice+Hardware.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CABD32B5160420A900B828DC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B4160420A900B828DC /* MediaPlayer.framework */; };
 		CABD32B7160420AE00B828DC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B6160420AE00B828DC /* AudioToolbox.framework */; };
 		CABD32B9160420B300B828DC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B8160420B300B828DC /* CFNetwork.framework */; };
 		CABD32BB1604214600B828DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32BA1604214600B828DC /* QuartzCore.framework */; };
-		CABD32C01604388E00B828DC /* retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32BF1604388E00B828DC /* retina.png */; };
-		CABD32C2160439CB00B828DC /* nonretina.png in Resources */ = {isa = PBXBuildFile; fileRef = CABD32C1160439CB00B828DC /* nonretina.png */; };
-		CAC411D7160515F200B9EFB9 /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC411D5160515F200B9EFB9 /* wifi.png */; };
-		CAC411D8160515F200B9EFB9 /* wifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC411D6160515F200B9EFB9 /* wifi@2x.png */; };
-		CAFD2C151604728A0080F1A3 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAFD2C141604728A0080F1A3 /* background@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CA3532D1160453E000E8A5DC /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = ../JSONKit.h; sourceTree = "<group>"; };
-		CA3532D2160453E000E8A5DC /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = ../JSONKit.m; sourceTree = "<group>"; };
-		CA79A751160506F800FBF56C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "KLIK Radio/background.png"; sourceTree = "<group>"; };
-		CA79A7581605108000FBF56C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		CA79A7591605108000FBF56C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		CA79A75B1605111300FBF56C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CAB79451160540E90027AA6B /* noalbum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noalbum.png; path = "KLIK Radio/noalbum.png"; sourceTree = "<group>"; };
-		CAB79452160540E90027AA6B /* noalbum@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "noalbum@2x.png"; path = "KLIK Radio/noalbum@2x.png"; sourceTree = "<group>"; };
-		CAB79456160548B90027AA6B /* bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg2.png; path = "KLIK Radio/bg2.png"; sourceTree = "<group>"; };
-		CAB7945816054B370027AA6B /* bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg2@2x.png"; path = "KLIK Radio/bg2@2x.png"; sourceTree = "<group>"; };
+		CA9D92D21606D59100F2F728 /* bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg2.png; path = Images/bg2.png; sourceTree = "<group>"; };
+		CA9D92D31606D59100F2F728 /* bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg2@2x.png"; path = "Images/bg2@2x.png"; sourceTree = "<group>"; };
+		CA9D92D41606D59100F2F728 /* noalbum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noalbum.png; path = Images/noalbum.png; sourceTree = "<group>"; };
+		CA9D92D51606D59100F2F728 /* noalbum@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "noalbum@2x.png"; path = "Images/noalbum@2x.png"; sourceTree = "<group>"; };
+		CA9D92D61606D59100F2F728 /* nonretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nonretina.png; path = Images/nonretina.png; sourceTree = "<group>"; };
+		CA9D92D71606D59100F2F728 /* retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = retina.png; path = Images/retina.png; sourceTree = "<group>"; };
+		CA9D92D81606D59100F2F728 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = Images/second.png; sourceTree = "<group>"; };
+		CA9D92D91606D59100F2F728 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "Images/second@2x.png"; sourceTree = "<group>"; };
+		CA9D92DA1606D59100F2F728 /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wifi.png; path = Images/wifi.png; sourceTree = "<group>"; };
+		CA9D92DB1606D59100F2F728 /* wifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi@2x.png"; path = "Images/wifi@2x.png"; sourceTree = "<group>"; };
+		CA9D92E61606D59F00F2F728 /* AudioStreamer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudioStreamer.h; path = OpenSource/AudioStreamer.h; sourceTree = "<group>"; };
+		CA9D92E71606D59F00F2F728 /* AudioStreamer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AudioStreamer.m; path = OpenSource/AudioStreamer.m; sourceTree = "<group>"; };
+		CA9D92E81606D59F00F2F728 /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = OpenSource/JSONKit.h; sourceTree = "<group>"; };
+		CA9D92E91606D59F00F2F728 /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = OpenSource/JSONKit.m; sourceTree = "<group>"; };
+		CA9D92EA1606D59F00F2F728 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = OpenSource/Reachability.h; sourceTree = "<group>"; };
+		CA9D92EB1606D59F00F2F728 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = OpenSource/Reachability.m; sourceTree = "<group>"; };
+		CA9D92EC1606D59F00F2F728 /* UIDevice+Hardware.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIDevice+Hardware.h"; path = "OpenSource/UIDevice+Hardware.h"; sourceTree = "<group>"; };
+		CA9D92ED1606D59F00F2F728 /* UIDevice+Hardware.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+Hardware.m"; path = "OpenSource/UIDevice+Hardware.m"; sourceTree = "<group>"; };
 		CABD327D16041C3200B828DC /* KLIK Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KLIK Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABD328116041C3200B828DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CABD328316041C3200B828DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -65,21 +68,10 @@
 		CABD329716041C3300B828DC /* KRNowPlayingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRNowPlayingController.m; sourceTree = "<group>"; };
 		CABD329D16041C3300B828DC /* KRSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRSecondViewController.h; sourceTree = "<group>"; };
 		CABD329E16041C3300B828DC /* KRSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRSecondViewController.m; sourceTree = "<group>"; };
-		CABD32A016041C3300B828DC /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = "KLIK Radio/second.png"; sourceTree = "<group>"; };
-		CABD32A216041C3300B828DC /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "KLIK Radio/second@2x.png"; sourceTree = "<group>"; };
-		CABD32AE16041E7600B828DC /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
-		CABD32AF16041E7700B828DC /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
-		CABD32B116041FD600B828DC /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Hardware.h"; sourceTree = "<group>"; };
-		CABD32B216041FD600B828DC /* UIDevice+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Hardware.m"; sourceTree = "<group>"; };
 		CABD32B4160420A900B828DC /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		CABD32B6160420AE00B828DC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CABD32B8160420B300B828DC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CABD32BA1604214600B828DC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		CABD32BF1604388E00B828DC /* retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retina.png; sourceTree = "<group>"; };
-		CABD32C1160439CB00B828DC /* nonretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nonretina.png; sourceTree = "<group>"; };
-		CAC411D5160515F200B9EFB9 /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wifi.png; path = "KLIK Radio/wifi.png"; sourceTree = "<group>"; };
-		CAC411D6160515F200B9EFB9 /* wifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi@2x.png"; path = "KLIK Radio/wifi@2x.png"; sourceTree = "<group>"; };
-		CAFD2C141604728A0080F1A3 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "KLIK Radio/background@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,21 +93,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA9D92D01606D57200F2F728 /* OpenSource */ = {
+			isa = PBXGroup;
+			children = (
+				CA9D92E61606D59F00F2F728 /* AudioStreamer.h */,
+				CA9D92E71606D59F00F2F728 /* AudioStreamer.m */,
+				CA9D92E81606D59F00F2F728 /* JSONKit.h */,
+				CA9D92E91606D59F00F2F728 /* JSONKit.m */,
+				CA9D92EA1606D59F00F2F728 /* Reachability.h */,
+				CA9D92EB1606D59F00F2F728 /* Reachability.m */,
+				CA9D92EC1606D59F00F2F728 /* UIDevice+Hardware.h */,
+				CA9D92ED1606D59F00F2F728 /* UIDevice+Hardware.m */,
+			);
+			name = OpenSource;
+			sourceTree = "<group>";
+		};
 		CAB7945A160578260027AA6B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				CABD32A016041C3300B828DC /* second.png */,
-				CABD32A216041C3300B828DC /* second@2x.png */,
-				CAB7945816054B370027AA6B /* bg2@2x.png */,
-				CAB79456160548B90027AA6B /* bg2.png */,
-				CAB79451160540E90027AA6B /* noalbum.png */,
-				CAB79452160540E90027AA6B /* noalbum@2x.png */,
-				CAC411D5160515F200B9EFB9 /* wifi.png */,
-				CAC411D6160515F200B9EFB9 /* wifi@2x.png */,
-				CA79A751160506F800FBF56C /* background.png */,
-				CAFD2C141604728A0080F1A3 /* background@2x.png */,
-				CABD32C1160439CB00B828DC /* nonretina.png */,
-				CABD32BF1604388E00B828DC /* retina.png */,
+				CA9D92D21606D59100F2F728 /* bg2.png */,
+				CA9D92D31606D59100F2F728 /* bg2@2x.png */,
+				CA9D92D41606D59100F2F728 /* noalbum.png */,
+				CA9D92D51606D59100F2F728 /* noalbum@2x.png */,
+				CA9D92D61606D59100F2F728 /* nonretina.png */,
+				CA9D92D71606D59100F2F728 /* retina.png */,
+				CA9D92D81606D59100F2F728 /* second.png */,
+				CA9D92D91606D59100F2F728 /* second@2x.png */,
+				CA9D92DA1606D59100F2F728 /* wifi.png */,
+				CA9D92DB1606D59100F2F728 /* wifi@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 		CABD327216041C3200B828DC = {
 			isa = PBXGroup;
 			children = (
+				CA9D92D01606D57200F2F728 /* OpenSource */,
 				CAB7945A160578260027AA6B /* Images */,
 				CABD328716041C3300B828DC /* KLIK Radio */,
 				CABD328016041C3200B828DC /* Frameworks */,
@@ -156,11 +162,6 @@
 		CABD328716041C3300B828DC /* KLIK Radio */ = {
 			isa = PBXGroup;
 			children = (
-				CA79A7581605108000FBF56C /* Reachability.h */,
-				CA79A7591605108000FBF56C /* Reachability.m */,
-				CABD32BC1604215A00B828DC /* Audio */,
-				CA3532D1160453E000E8A5DC /* JSONKit.h */,
-				CA3532D2160453E000E8A5DC /* JSONKit.m */,
 				CABD329016041C3300B828DC /* KRAppDelegate.h */,
 				CABD329116041C3300B828DC /* KRAppDelegate.m */,
 				CABD329316041C3300B828DC /* MainStoryboard.storyboard */,
@@ -182,17 +183,6 @@
 				CABD328F16041C3300B828DC /* KLIK Radio-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CABD32BC1604215A00B828DC /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				CABD32B116041FD600B828DC /* UIDevice+Hardware.h */,
-				CABD32B216041FD600B828DC /* UIDevice+Hardware.m */,
-				CABD32AE16041E7600B828DC /* AudioStreamer.h */,
-				CABD32AF16041E7700B828DC /* AudioStreamer.m */,
-			);
-			name = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,18 +239,16 @@
 			files = (
 				CABD328C16041C3300B828DC /* InfoPlist.strings in Resources */,
 				CABD329516041C3300B828DC /* MainStoryboard.storyboard in Resources */,
-				CABD32A116041C3300B828DC /* second.png in Resources */,
-				CABD32A316041C3300B828DC /* second@2x.png in Resources */,
-				CABD32C01604388E00B828DC /* retina.png in Resources */,
-				CABD32C2160439CB00B828DC /* nonretina.png in Resources */,
-				CAFD2C151604728A0080F1A3 /* background@2x.png in Resources */,
-				CA79A752160506F800FBF56C /* background.png in Resources */,
-				CAC411D7160515F200B9EFB9 /* wifi.png in Resources */,
-				CAC411D8160515F200B9EFB9 /* wifi@2x.png in Resources */,
-				CAB79453160540E90027AA6B /* noalbum.png in Resources */,
-				CAB79454160540E90027AA6B /* noalbum@2x.png in Resources */,
-				CAB79457160548B90027AA6B /* bg2.png in Resources */,
-				CAB7945916054B370027AA6B /* bg2@2x.png in Resources */,
+				CA9D92DC1606D59100F2F728 /* bg2.png in Resources */,
+				CA9D92DD1606D59100F2F728 /* bg2@2x.png in Resources */,
+				CA9D92DE1606D59100F2F728 /* noalbum.png in Resources */,
+				CA9D92DF1606D59100F2F728 /* noalbum@2x.png in Resources */,
+				CA9D92E01606D59100F2F728 /* nonretina.png in Resources */,
+				CA9D92E11606D59100F2F728 /* retina.png in Resources */,
+				CA9D92E21606D59100F2F728 /* second.png in Resources */,
+				CA9D92E31606D59100F2F728 /* second@2x.png in Resources */,
+				CA9D92E41606D59100F2F728 /* wifi.png in Resources */,
+				CA9D92E51606D59100F2F728 /* wifi@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,10 +263,6 @@
 				CABD329216041C3300B828DC /* KRAppDelegate.m in Sources */,
 				CABD329816041C3300B828DC /* KRNowPlayingController.m in Sources */,
 				CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */,
-				CABD32B016041E7700B828DC /* AudioStreamer.m in Sources */,
-				CABD32B316041FD600B828DC /* UIDevice+Hardware.m in Sources */,
-				CA3532D3160453E000E8A5DC /* JSONKit.m in Sources */,
-				CA79A75A1605108000FBF56C /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
