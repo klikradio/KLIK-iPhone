@@ -231,10 +231,6 @@
     NSString *viewURL = [NSString stringWithFormat:@"itms://%@", [[searchResult objectForKey:@"trackViewUrl"] substringFromIndex:7]];
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:viewURL]];
-    
-    /*
-    NSURL *iTunes = [NSURL URLWithString:[[NSString stringWithFormat:@"itms://WebObjects/MZSearch.woa/wa/advancedSearchResults?songTerm=%@&artistTerm=%@", NowPlayingTitle.text, NowPlayingArtist.text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    [[UIApplication sharedApplication] openURL:iTunes];*/
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
