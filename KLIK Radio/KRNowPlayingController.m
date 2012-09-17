@@ -5,7 +5,42 @@
 //  Created by Jake Wood on 9/14/12.
 //  Copyright (c) 2012 KLIK Radio. All rights reserved.
 //
-
+/*#if DEBUG
+switch ([streamer state])
+{
+    case AS_INITIALIZED:
+        NSLog(@"AsInitialized");
+        break;
+    case AS_STARTING_FILE_THREAD:
+        NSLog(@"As starting file thread");
+        break;
+    case AS_WAITING_FOR_DATA:
+        NSLog(@"As waiting for data");
+        break;
+    case AS_BUFFERING:
+        NSLog(@"Buffering");
+        break;
+    case AS_FLUSHING_EOF:
+        NSLog(@"Flushing EOF");
+        break;
+    case AS_PAUSED:
+        NSLog(@"Paused");
+        break;
+    case AS_PLAYING:
+        NSLog(@"Playing");
+        break;
+    case AS_STOPPED:
+        NSLog(@"Stopped");
+        break;
+    case AS_STOPPING:
+        NSLog(@"STopping");
+        break;
+    case AS_WAITING_FOR_QUEUE_TO_START:
+        NSLog(@"Waiting for queue to start");
+        break;
+        
+}
+#endif*/
 #import "KRNowPlayingController.h"
 #import "Reachability.h"
 #import "KRAppDelegate.h"
@@ -18,20 +53,19 @@
 
 - (void)viewDidLoad
 {
-    [(KRAppDelegate *)[[UIApplication sharedApplication] delegate] setController:self];
-    
     [super viewDidLoad];
-    
+    [(KRAppDelegate *)[[UIApplication sharedApplication] delegate] setController:self];
     NowPlayingVolume.backgroundColor = [UIColor clearColor];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg2.png"]];
-    
-    [self startStream];
 }
-
 
 - (void)startStream
 {
-    Reachability *reach = [Reachability reachabilityForInternetConnection];
+    if (reach == nil)
+    {
+        reach = [Reachability reachabilityWithHostName:@"majestic.wavestreamer.com"];
+    }
+    
     if ([reach currentReachabilityStatus] == ReachableViaWiFi)
     {
         if (streamer == nil)
@@ -50,6 +84,20 @@
              name:ASStatusChangedNotification
              object:streamer];
             
+            [[NSNotificationCenter defaultCenter]
+             addObserver:self
+             selector:@selector(streamError:)
+             name:ASPresentAlertWithTitleNotification
+             object:streamer];
+            
+            [[NSNotificationCenter defaultCenter]
+             addObserver:self
+             selector:@selector(reachabilityChanged:)
+             name:kReachabilityChangedNotification
+             object:nil];
+            
+            [reach startNotifier];
+            
             [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
             [streamer start];
         }
@@ -66,6 +114,7 @@
         [NowPlayingImage setImage:[UIImage imageNamed:@"wifi.png"]];
         
         [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+        [reach stopNotifier];
     }
 }
 
@@ -74,6 +123,11 @@
     [streamer stop];
     streamer = nil;
     
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:ASPresentAlertWithTitleNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:ASUpdateMetadataNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:ASStatusChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+    
     [NowPlayingStop setTitle:@"Play" forState:UIControlStateNormal];
     [NowPlayingBuffering stopAnimating];
     [NowPlayingArtist setText:@""];
@@ -81,18 +135,42 @@
     [NowPlayingImage setImage:[UIImage imageNamed:@"noalbum.png"]];
 }
 
+- (void) reachabilityChanged:(NSNotification *)notification
+{
+    Reachability *curReach = [notification object];
+    
+    if ([curReach currentReachabilityStatus] == ReachableViaWWAN ||
+        [curReach currentReachabilityStatus] == NotReachable)
+    {
+        [streamer stop];
+        UIAlertView *sorry = [[UIAlertView alloc] initWithTitle:@"No Wi-fi" message:@"Sorry, but KLIK currently doesn't have a mobile stream.  Please try again with a Wi-fi connection." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [sorry show];
+        
+        [NowPlayingBuffering stopAnimating];
+        [NowPlayingArtist setText:@"Wi-Fi Required"];
+        [NowPlayingTitle setText:@""];
+        [NowPlayingStop setTitle:@"Play" forState:UIControlStateNormal];
+        [NowPlayingImage setImage:[UIImage imageNamed:@"wifi.png"]];
+        
+        [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    }
+}
+
 - (void) streamChanged:(NSNotification *)notification
 {
     if ([streamer isWaiting]) {
         [NowPlayingBuffering startAnimating];
+        [NowPlayingBuy setEnabled:NO];
     }
     else if ([streamer isPlaying]) {
         [NowPlayingBuffering stopAnimating];
         [NowPlayingStop setTitle:@"Stop" forState:UIControlStateNormal];
+        [NowPlayingBuy setEnabled:YES];
     }
     else if ([streamer isPaused])
     {
         [NowPlayingStop setTitle:@"Play" forState:UIControlStateNormal];
+        [NowPlayingBuy setEnabled:NO];
     }
 }
 
@@ -156,46 +234,18 @@
     [NowPlayingTitle setText:streamTitle];
 }
 
+- (void)streamError:(NSNotification *)notification
+{
+    if ([[[notification userInfo] objectForKey:@"errorcode"] intValue] == 7)
+    {
+        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"KLIK is Offline" message:@"Please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [error show];
+        [self stopStream];
+    }
+}
 
 - (IBAction)StopPressed:(id)sender
 {
-    
-     #if DEBUG
-     switch ([streamer state])
-     {
-     case AS_INITIALIZED:
-     NSLog(@"AsInitialized");
-     break;
-     case AS_STARTING_FILE_THREAD:
-     NSLog(@"As starting file thread");
-     break;
-     case AS_WAITING_FOR_DATA:
-     NSLog(@"As waiting for data");
-     break;
-     case AS_BUFFERING:
-     NSLog(@"Buffering");
-     break;
-     case AS_FLUSHING_EOF:
-     NSLog(@"Flushing EOF");
-     break;
-     case AS_PAUSED:
-     NSLog(@"Paused");
-     break;
-     case AS_PLAYING:
-     NSLog(@"Playing");
-     break;
-     case AS_STOPPED:
-     NSLog(@"Stopped");
-     break;
-     case AS_STOPPING:
-     NSLog(@"STopping");
-     break;
-     case AS_WAITING_FOR_QUEUE_TO_START:
-     NSLog(@"Waiting for queue to start");
-     break;
-     
-     }
-     #endif
     if (streamer == nil)
     {
         [self startStream];
@@ -222,15 +272,18 @@
 
 - (IBAction)BuySongPressed:(id)sender
 {
-    NSString *searchURL = [NSString stringWithFormat:@"http://itunes.apple.com/search?term=%@ %@", NowPlayingArtist.text, NowPlayingTitle.text];
-    NSData *searchData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[searchURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-    NSDictionary *searchDict = [searchData objectFromJSONData];
-    NSArray *searchResults = [searchDict objectForKey:@"results"];
-    NSDictionary *searchResult = [searchResults objectAtIndex:0];
-    
-    NSString *viewURL = [NSString stringWithFormat:@"itms://%@", [[searchResult objectForKey:@"trackViewUrl"] substringFromIndex:7]];
-    
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:viewURL]];
+    if ([streamer isPlaying])
+    {
+        NSString *searchURL = [NSString stringWithFormat:@"http://itunes.apple.com/search?term=%@ %@", NowPlayingArtist.text, NowPlayingTitle.text];
+        NSData *searchData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[searchURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+        NSDictionary *searchDict = [searchData objectFromJSONData];
+        NSArray *searchResults = [searchDict objectForKey:@"results"];
+        NSDictionary *searchResult = [searchResults objectAtIndex:0];
+        
+        NSString *viewURL = [NSString stringWithFormat:@"itms://%@", [[searchResult objectForKey:@"trackViewUrl"] substringFromIndex:7]];
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:viewURL]];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

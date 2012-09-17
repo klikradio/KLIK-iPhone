@@ -15,6 +15,8 @@
 @interface KRNowPlayingController : UIViewController
 {
     AudioStreamer *streamer;
+    Reachability *reach;
+    
     IBOutlet UIActivityIndicatorView *NowPlayingBuffering;
     IBOutlet UIImageView *NowPlayingImage;
     IBOutlet UILabel *NowPlayingTitle;
@@ -28,5 +30,7 @@
 
 - (IBAction)StopPressed:(id)sender;
 - (IBAction)BuySongPressed:(id)sender;
+
+- (void)startStream;
 
 @end

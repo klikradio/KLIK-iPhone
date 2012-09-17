@@ -404,6 +404,14 @@ void ASReadStreamCallBack
 	 postNotification:notification];
 }
 
+- (void)presentAlertWithErrorCode:(AudioStreamerErrorCode)anErrorCode
+{
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:anErrorCode], @"errorcode", [AudioStreamer stringForErrorCode:anErrorCode], @"message", nil];
+    NSNotification *notification = [NSNotification notificationWithName:ASPresentAlertWithTitleNotification object:self userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    NSLog(@"Notification being sent");
+}
+
 //
 // failWithErrorCode:
 //
@@ -446,8 +454,7 @@ void ASReadStreamCallBack
 			AudioQueueStop(audioQueue, true);
 		}
 
-		[self presentAlertWithTitle:NSLocalizedStringFromTable(@"File Error", @"Errors", nil)
-							message:NSLocalizedStringFromTable(@"Unable to configure network read stream.", @"Errors", nil)];
+		[self presentAlertWithErrorCode:anErrorCode];
 	}
 }
 
