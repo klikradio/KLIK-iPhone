@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA5EFD1F16084E0600EFC90A /* KRSongRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5EFD1E16084E0600EFC90A /* KRSongRequestController.m */; };
 		CA79A75C1605111300FBF56C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA79A75B1605111300FBF56C /* SystemConfiguration.framework */; };
 		CA9D92DC1606D59100F2F728 /* bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D21606D59100F2F728 /* bg2.png */; };
 		CA9D92DD1606D59100F2F728 /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D31606D59100F2F728 /* bg2@2x.png */; };
@@ -39,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA5EFD1D16084E0600EFC90A /* KRSongRequestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSongRequestController.h; sourceTree = "<group>"; };
+		CA5EFD1E16084E0600EFC90A /* KRSongRequestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSongRequestController.m; sourceTree = "<group>"; };
 		CA79A75B1605111300FBF56C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CA9D92D21606D59100F2F728 /* bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg2.png; path = Images/bg2.png; sourceTree = "<group>"; };
 		CA9D92D31606D59100F2F728 /* bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg2@2x.png"; path = "Images/bg2@2x.png"; sourceTree = "<group>"; };
@@ -154,11 +157,13 @@
 		CABD328716041C3300B828DC /* KLIK Radio */ = {
 			isa = PBXGroup;
 			children = (
+				CABD329316041C3300B828DC /* MainStoryboard.storyboard */,
 				CABD329016041C3300B828DC /* KRAppDelegate.h */,
 				CABD329116041C3300B828DC /* KRAppDelegate.m */,
-				CABD329316041C3300B828DC /* MainStoryboard.storyboard */,
 				CABD329616041C3300B828DC /* KRNowPlayingController.h */,
 				CABD329716041C3300B828DC /* KRNowPlayingController.m */,
+				CA5EFD1D16084E0600EFC90A /* KRSongRequestController.h */,
+				CA5EFD1E16084E0600EFC90A /* KRSongRequestController.m */,
 				CABD328816041C3300B828DC /* Supporting Files */,
 			);
 			path = "KLIK Radio";
@@ -274,6 +279,7 @@
 				CABD328E16041C3300B828DC /* main.m in Sources */,
 				CABD329216041C3300B828DC /* KRAppDelegate.m in Sources */,
 				CABD329816041C3300B828DC /* KRNowPlayingController.m in Sources */,
+				CA5EFD1F16084E0600EFC90A /* KRSongRequestController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

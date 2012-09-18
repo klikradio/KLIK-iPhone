@@ -46,7 +46,6 @@ switch ([streamer state])
 #import "KRAppDelegate.h"
 
 @interface KRNowPlayingController ()
-
 @end
 
 @implementation KRNowPlayingController
