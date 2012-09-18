@@ -26,7 +26,6 @@
 		CABD329216041C3300B828DC /* KRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329116041C3300B828DC /* KRAppDelegate.m */; };
 		CABD329516041C3300B828DC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABD329316041C3300B828DC /* MainStoryboard.storyboard */; };
 		CABD329816041C3300B828DC /* KRNowPlayingController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329716041C3300B828DC /* KRNowPlayingController.m */; };
-		CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329E16041C3300B828DC /* KRSecondViewController.m */; };
 		CABD32B5160420A900B828DC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B4160420A900B828DC /* MediaPlayer.framework */; };
 		CABD32B7160420AE00B828DC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B6160420AE00B828DC /* AudioToolbox.framework */; };
 		CABD32B9160420B300B828DC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B8160420B300B828DC /* CFNetwork.framework */; };
@@ -72,8 +71,6 @@
 		CABD329416041C3300B828DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		CABD329616041C3300B828DC /* KRNowPlayingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRNowPlayingController.h; sourceTree = "<group>"; };
 		CABD329716041C3300B828DC /* KRNowPlayingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRNowPlayingController.m; sourceTree = "<group>"; };
-		CABD329D16041C3300B828DC /* KRSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRSecondViewController.h; sourceTree = "<group>"; };
-		CABD329E16041C3300B828DC /* KRSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRSecondViewController.m; sourceTree = "<group>"; };
 		CABD32B4160420A900B828DC /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		CABD32B6160420AE00B828DC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CABD32B8160420B300B828DC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -104,6 +101,8 @@
 		CAB7945A160578260027AA6B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CAC707AA1606EDED00222C3C /* Default@2x.png */,
+				CAC707A81606EDEC00222C3C /* Default.png */,
 				CA9D92D21606D59100F2F728 /* bg2.png */,
 				CA9D92D31606D59100F2F728 /* bg2@2x.png */,
 				CA9D92D41606D59100F2F728 /* noalbum.png */,
@@ -121,8 +120,6 @@
 		CABD327216041C3200B828DC = {
 			isa = PBXGroup;
 			children = (
-				CAC707AA1606EDED00222C3C /* Default@2x.png */,
-				CAC707A81606EDEC00222C3C /* Default.png */,
 				CAC707A71606EBA400222C3C /* Open Source */,
 				CAB7945A160578260027AA6B /* Images */,
 				CABD328716041C3300B828DC /* KLIK Radio */,
@@ -162,8 +159,6 @@
 				CABD329316041C3300B828DC /* MainStoryboard.storyboard */,
 				CABD329616041C3300B828DC /* KRNowPlayingController.h */,
 				CABD329716041C3300B828DC /* KRNowPlayingController.m */,
-				CABD329D16041C3300B828DC /* KRSecondViewController.h */,
-				CABD329E16041C3300B828DC /* KRSecondViewController.m */,
 				CABD328816041C3300B828DC /* Supporting Files */,
 			);
 			path = "KLIK Radio";
@@ -279,7 +274,6 @@
 				CABD328E16041C3300B828DC /* main.m in Sources */,
 				CABD329216041C3300B828DC /* KRAppDelegate.m in Sources */,
 				CABD329816041C3300B828DC /* KRNowPlayingController.m in Sources */,
-				CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

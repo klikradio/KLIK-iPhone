@@ -174,7 +174,6 @@ switch ([streamer state])
     }
 }
 
-
 - (void) newSong:(NSNotification *)notification
 {
     NSString *streamArtist;
