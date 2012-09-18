@@ -7,7 +7,6 @@
 //
 
 #import "KRSongRequestController.h"
-#import "JSONkit.h"
 
 @interface KRSongRequestController ()
 @end
@@ -26,13 +25,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     NSData *songData = [[NSData alloc] initWithContentsOfURL:[[NSURL alloc] initWithString:@"http://uploader.klikradio.org/songs/?limit=5&sort=date_added&desc=1"]];
     songs = [songData objectFromJSONData];
 }
 
 - (void)viewDidUnload
 {
+    SongTableView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -48,13 +47,27 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    if (tableView == self.tableView)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [songs count];
+    if (tableView == self.tableView)
+    {
+        return [songs count];
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,10 +75,16 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
-    cell.textLabel.text = [[songs objectAtIndex:indexPath.row] objectForKey:@"title"];
-    cell.detailTextLabel.text = [[songs objectAtIndex:indexPath.row] objectForKey:@"artist"];
-    
+    if (cell == nil)
+    {
+        NSLog(@"CELL IS NIL!!! THATS THE PROBLEM!");
+    }
+    else
+    {
+        // Configure the cell...
+        cell.textLabel.text = [[songs objectAtIndex:indexPath.row] objectForKey:@"title"];
+        cell.detailTextLabel.text = [[songs objectAtIndex:indexPath.row] objectForKey:@"artist"];
+    }
     return cell;
 }
 
@@ -73,16 +92,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
     NSLog(@"Request ID %@", [[songs objectAtIndex:indexPath.row] objectForKey:@"ID"]);
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 /*

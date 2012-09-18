@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JSONkit.h"
+#import "MBProgressHUD.h"
 
-@interface KRSongRequestController : UITableViewController <UISearchBarDelegate>
+@interface KRSongRequestController : UITableViewController
 {
     NSArray *songs;
+    IBOutlet UITableView *SongTableView;
 }
 @end
