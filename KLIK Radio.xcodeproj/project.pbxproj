@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA2F902C160979BD0005722C /* nowplaying.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2F902A160979BD0005722C /* nowplaying.png */; };
+		CA2F902D160979BD0005722C /* nowplaying@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2F902B160979BD0005722C /* nowplaying@2x.png */; };
+		CA2F90351609839A0005722C /* KRRequestConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA2F90341609839A0005722C /* KRRequestConnectionDelegate.m */; };
+		CA2F903D16098E710005722C /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2F903B16098E710005722C /* 37x-Checkmark.png */; };
+		CA2F903E16098E710005722C /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2F903C16098E710005722C /* 37x-Checkmark@2x.png */; };
 		CA5EFD1F16084E0600EFC90A /* KRSongRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5EFD1E16084E0600EFC90A /* KRSongRequestController.m */; };
 		CA5EFD23160864F000EFC90A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5EFD221608640200EFC90A /* MBProgressHUD.m */; };
 		CA79A75C1605111300FBF56C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA79A75B1605111300FBF56C /* SystemConfiguration.framework */; };
@@ -41,6 +46,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA2F902A160979BD0005722C /* nowplaying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nowplaying.png; path = Images/nowplaying.png; sourceTree = "<group>"; };
+		CA2F902B160979BD0005722C /* nowplaying@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nowplaying@2x.png"; path = "Images/nowplaying@2x.png"; sourceTree = "<group>"; };
+		CA2F90331609839A0005722C /* KRRequestConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRRequestConnectionDelegate.h; sourceTree = "<group>"; };
+		CA2F90341609839A0005722C /* KRRequestConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRRequestConnectionDelegate.m; sourceTree = "<group>"; };
+		CA2F903B16098E710005722C /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37x-Checkmark.png"; path = "Images/37x-Checkmark.png"; sourceTree = "<group>"; };
+		CA2F903C16098E710005722C /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37x-Checkmark@2x.png"; path = "Images/37x-Checkmark@2x.png"; sourceTree = "<group>"; };
 		CA5EFD1D16084E0600EFC90A /* KRSongRequestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSongRequestController.h; sourceTree = "<group>"; };
 		CA5EFD1E16084E0600EFC90A /* KRSongRequestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSongRequestController.m; sourceTree = "<group>"; };
 		CA5EFD211608640200EFC90A /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -104,16 +115,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA2F903616098B820005722C /* Song Requests */ = {
+			isa = PBXGroup;
+			children = (
+				CA5EFD1D16084E0600EFC90A /* KRSongRequestController.h */,
+				CA5EFD1E16084E0600EFC90A /* KRSongRequestController.m */,
+				CA2F90331609839A0005722C /* KRRequestConnectionDelegate.h */,
+				CA2F90341609839A0005722C /* KRRequestConnectionDelegate.m */,
+			);
+			name = "Song Requests";
+			sourceTree = "<group>";
+		};
 		CAB7945A160578260027AA6B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				CAC707AA1606EDED00222C3C /* Default@2x.png */,
-				CAC707A81606EDEC00222C3C /* Default.png */,
+				CA2F903B16098E710005722C /* 37x-Checkmark.png */,
+				CA2F903C16098E710005722C /* 37x-Checkmark@2x.png */,
 				CA9D92D21606D59100F2F728 /* bg2.png */,
 				CA9D92D31606D59100F2F728 /* bg2@2x.png */,
+				CAC707A81606EDEC00222C3C /* Default.png */,
+				CAC707AA1606EDED00222C3C /* Default@2x.png */,
 				CA9D92D41606D59100F2F728 /* noalbum.png */,
 				CA9D92D51606D59100F2F728 /* noalbum@2x.png */,
 				CA9D92D61606D59100F2F728 /* nonretina.png */,
+				CA2F902A160979BD0005722C /* nowplaying.png */,
+				CA2F902B160979BD0005722C /* nowplaying@2x.png */,
 				CA9D92D71606D59100F2F728 /* retina.png */,
 				CA9D92D81606D59100F2F728 /* second.png */,
 				CA9D92D91606D59100F2F728 /* second@2x.png */,
@@ -165,8 +191,7 @@
 				CABD329116041C3300B828DC /* KRAppDelegate.m */,
 				CABD329616041C3300B828DC /* KRNowPlayingController.h */,
 				CABD329716041C3300B828DC /* KRNowPlayingController.m */,
-				CA5EFD1D16084E0600EFC90A /* KRSongRequestController.h */,
-				CA5EFD1E16084E0600EFC90A /* KRSongRequestController.m */,
+				CA2F903616098B820005722C /* Song Requests */,
 				CABD328816041C3300B828DC /* Supporting Files */,
 			);
 			path = "KLIK Radio";
@@ -267,6 +292,10 @@
 				CA9D92E51606D59100F2F728 /* wifi@2x.png in Resources */,
 				CAC707A91606EDEC00222C3C /* Default.png in Resources */,
 				CAC707AB1606EDEE00222C3C /* Default@2x.png in Resources */,
+				CA2F902C160979BD0005722C /* nowplaying.png in Resources */,
+				CA2F902D160979BD0005722C /* nowplaying@2x.png in Resources */,
+				CA2F903D16098E710005722C /* 37x-Checkmark.png in Resources */,
+				CA2F903E16098E710005722C /* 37x-Checkmark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +315,7 @@
 				CABD329216041C3300B828DC /* KRAppDelegate.m in Sources */,
 				CABD329816041C3300B828DC /* KRNowPlayingController.m in Sources */,
 				CA5EFD1F16084E0600EFC90A /* KRSongRequestController.m in Sources */,
+				CA2F90351609839A0005722C /* KRRequestConnectionDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

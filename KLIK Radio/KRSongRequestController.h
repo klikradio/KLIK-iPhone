@@ -10,9 +10,13 @@
 #import "JSONkit.h"
 #import "MBProgressHUD.h"
 
-@interface KRSongRequestController : UITableViewController
+@interface KRSongRequestController : UITableViewController <UISearchBarDelegate, NSURLConnectionDelegate, UIAlertViewDelegate>
 {
     NSArray *songs;
+    NSNumber *songRequestID;
+    NSMutableData *receivedData;
+    
     IBOutlet UITableView *SongTableView;
 }
+@property (strong, nonatomic) IBOutlet UISearchBar *SongSearchBar;
 @end

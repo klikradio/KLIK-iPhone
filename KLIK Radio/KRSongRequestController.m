@@ -7,11 +7,13 @@
 //
 
 #import "KRSongRequestController.h"
+#import "KRRequestConnectionDelegate.h"
 
 @interface KRSongRequestController ()
 @end
 
 @implementation KRSongRequestController
+@synthesize SongSearchBar;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,9 +34,83 @@
 - (void)viewDidUnload
 {
     SongTableView = nil;
+    [self setSongSearchBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    // Hide the table...
+    [searchBar setShowsCancelButton:YES animated:YES];
+    self.tableView.allowsSelection = NO;
+    self.tableView.scrollEnabled = NO;
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+    self.tableView.allowsSelection = YES;
+    self.tableView.scrollEnabled = YES;
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.SongSearchBar resignFirstResponder];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    NSString *urlString = [NSString
+                           stringWithFormat:@"http://uploader.klikradio.org/songs/?term=%@&sort=date_added&desc=1",
+                           [self.SongSearchBar text]];
+    NSURL *url = [[NSURL alloc]
+                  initWithString:[urlString
+                                  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
+                                             cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                             timeoutInterval:15];
+    
+    NSURLConnection *urlConnection = [[NSURLConnection alloc]
+                                      initWithRequest:urlRequest
+                                      delegate:self];
+    if (!urlConnection)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Error Connecting"
+                              message:@"Sorry, but we couldn't connect to KLIK's request server.  Please try again later."
+                              delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+    else
+    {
+        receivedData = [[NSMutableData alloc] init];
+    }
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+    self.tableView.allowsSelection = YES;
+    self.tableView.scrollEnabled = YES;
+}
+
+- (void)connection:(NSURLConnection *)urlConnection didReceiveData:(NSData *)data
+{
+    [receivedData appendData:data];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"%@", [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
+    songs = [receivedData objectFromJSONData];
+    NSLog(@"%@", songs);
+    [self.tableView reloadData];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -92,8 +168,42 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Request ID %@", [[songs objectAtIndex:indexPath.row] objectForKey:@"ID"]);
+    songRequestID = [[songs objectAtIndex:indexPath.row] objectForKey:@"ID"];
+    NSString *message = [[NSString alloc] initWithFormat:@"Are you sure you want to request %@ by %@?",
+                         [[songs objectAtIndex:indexPath.row] objectForKey:@"title"],
+                         [[songs objectAtIndex:indexPath.row] objectForKey:@"artist"]];
+    UIAlertView *requestVerify = [[UIAlertView alloc] initWithTitle:@"Request" message:message delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [requestVerify show];
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *buttonName = [alertView buttonTitleAtIndex:buttonIndex];
+    if ([buttonName isEqualToString:@"Yes"])
+    {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        self.tableView.allowsSelection = NO;
+        self.tableView.scrollEnabled = NO;
+        
+        KRRequestConnectionDelegate *requestDelegate = [[KRRequestConnectionDelegate alloc] initWithView:self];
+        
+        NSMutableURLRequest *requestRequest = [[NSMutableURLRequest alloc]
+                                                initWithURL:[[NSURL alloc]
+                                                             initWithString:[NSString
+                                                                             stringWithFormat:
+                                                                             @"http://uploader.klikradio.org/request/%@",
+                                                                             songRequestID]]];
+        [requestRequest setHTTPMethod:@"POST"];
+        
+        NSURLConnection *requestConnection = [[NSURLConnection alloc] initWithRequest:requestRequest delegate:requestDelegate];
+        
+        self.tableView.allowsSelection = YES;
+        self.tableView.scrollEnabled = YES;
+        
+        NSLog(@"Request ID %@", songRequestID);
+    }
 }
 
 /*
