@@ -27,8 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSData *songData = [[NSData alloc] initWithContentsOfURL:[[NSURL alloc] initWithString:@"http://uploader.klikradio.org/songs/?limit=5&sort=date_added&desc=1"]];
-    songs = [songData objectFromJSONData];
+    
+/*    NSData *songData = [[NSData alloc] initWithContentsOfURL:[[NSURL alloc] initWithString:@"http://uploader.klikradio.org/songs/?limit=5&sort=date_added&desc=1"]];
+    songs = [songData objectFromJSONData];*/
 }
 
 - (void)viewDidUnload

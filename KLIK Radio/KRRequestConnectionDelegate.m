@@ -21,7 +21,14 @@
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    [receivedData appendData:data];
+    if (receivedData == nil)
+    {
+        receivedData = [[NSMutableData alloc] initWithData:data];
+    }
+    else
+    {
+        [receivedData appendData:data];
+    }
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
