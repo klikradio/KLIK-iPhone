@@ -55,7 +55,18 @@ switch ([streamer state])
     [super viewDidLoad];
     [(KRAppDelegate *)[[UIApplication sharedApplication] delegate] setController:self];
     NowPlayingVolume.backgroundColor = [UIColor clearColor];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg2.png"]];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+    if (screenHeight == 568)
+    {
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg2-568h.png"]];
+    }
+    else
+    {
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg2.png"]];
+    }
+    
 }
 
 - (void)startStream
@@ -69,7 +80,7 @@ switch ([streamer state])
     {
         if (streamer == nil)
         {
-            streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://majestic.wavestreamer.com:3238/"]];
+            streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://klikradio.org/klik"]];
             
             [[NSNotificationCenter defaultCenter]
              addObserver:self

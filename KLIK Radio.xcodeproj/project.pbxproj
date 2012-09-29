@@ -25,6 +25,9 @@
 		CA9D92E31606D59100F2F728 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D91606D59100F2F728 /* second@2x.png */; };
 		CA9D92E41606D59100F2F728 /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92DA1606D59100F2F728 /* wifi.png */; };
 		CA9D92E51606D59100F2F728 /* wifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92DB1606D59100F2F728 /* wifi@2x.png */; };
+		CAAE229B1616B0A300198146 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAE229A1616B0A300198146 /* Default-568h@2x.png */; };
+		CAAE229E1616B0EA00198146 /* bg2-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAE229D1616B0EA00198146 /* bg2-568h@2x.png */; };
+		CAAE22A01616E88F00198146 /* bg2-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAE229F1616E88F00198146 /* bg2-568h.png */; };
 		CABD328216041C3200B828DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328116041C3200B828DC /* UIKit.framework */; };
 		CABD328416041C3300B828DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328316041C3200B828DC /* Foundation.framework */; };
 		CABD328616041C3300B828DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD328516041C3300B828DC /* CoreGraphics.framework */; };
@@ -75,6 +78,9 @@
 		CA9D92EB1606D59F00F2F728 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../OpenSource/Reachability.m; sourceTree = "<group>"; };
 		CA9D92EC1606D59F00F2F728 /* UIDevice+Hardware.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIDevice+Hardware.h"; path = "../OpenSource/UIDevice+Hardware.h"; sourceTree = "<group>"; };
 		CA9D92ED1606D59F00F2F728 /* UIDevice+Hardware.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+Hardware.m"; path = "../OpenSource/UIDevice+Hardware.m"; sourceTree = "<group>"; };
+		CAAE229A1616B0A300198146 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CAAE229D1616B0EA00198146 /* bg2-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg2-568h@2x.png"; path = "Images/bg2-568h@2x.png"; sourceTree = "<group>"; };
+		CAAE229F1616E88F00198146 /* bg2-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg2-568h.png"; path = "Images/bg2-568h.png"; sourceTree = "<group>"; };
 		CABD327D16041C3200B828DC /* KLIK Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KLIK Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABD328116041C3200B828DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CABD328316041C3200B828DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };

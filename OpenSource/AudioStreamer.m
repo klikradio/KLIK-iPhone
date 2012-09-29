@@ -2435,7 +2435,13 @@ void PropListener(void *inClientData, AudioSessionPropertyID inID, UInt32 inDatS
     NSDictionary *inDict = (NSDictionary *)inData;
     if ([[inDict objectForKey:@"OutputDeviceDidChange_Reason"] intValue] == 2)
     {
-        [__streamer pause];
+        if (__streamer != nil)
+        {
+            if ([__streamer isPlaying])
+            {
+                [__streamer pause];
+            }
+        }
     }
     NSLog(@"NEW ROUTE IS: %@", [inDict objectForKey:@"OutputDeviceDidChange_NewRoute"]);
 }
