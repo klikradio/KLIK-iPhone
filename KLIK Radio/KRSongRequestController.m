@@ -28,8 +28,8 @@
 {
     [super viewDidLoad];
     
-/*    NSData *songData = [[NSData alloc] initWithContentsOfURL:[[NSURL alloc] initWithString:@"http://uploader.klikradio.org/songs/?limit=5&sort=date_added&desc=1"]];
-    songs = [songData objectFromJSONData];*/
+    NSData *songData = [[NSData alloc] initWithContentsOfURL:[[NSURL alloc] initWithString:@"http://samapi.klikradio.org/songs/?limit=5&sort=date_added&desc=1"]];
+    songs = [songData objectFromJSONData];
 }
 
 - (void)viewDidUnload
@@ -64,7 +64,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     NSString *urlString = [NSString
-                           stringWithFormat:@"http://uploader.klikradio.org/songs/?term=%@&sort=date_added&desc=1",
+                           stringWithFormat:@"http://samapi.klikradio.org/songs/?term=%@&sort=date_added&desc=1",
                            [self.SongSearchBar text]];
     NSURL *url = [[NSURL alloc]
                   initWithString:[urlString
@@ -73,6 +73,7 @@
                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                                              timeoutInterval:15];
     
+    receivedData = [[NSMutableData alloc] init];
     NSURLConnection *urlConnection = [[NSURLConnection alloc]
                                       initWithRequest:urlRequest
                                       delegate:self];
@@ -85,10 +86,6 @@
                               cancelButtonTitle:@"OK"
                               otherButtonTitles:nil];
         [alert show];
-    }
-    else
-    {
-        receivedData = [[NSMutableData alloc] init];
     }
 }
 
@@ -107,9 +104,7 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"%@", [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
     songs = [receivedData objectFromJSONData];
-    NSLog(@"%@", songs);
     [self.tableView reloadData];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
@@ -194,7 +189,7 @@
                                                 initWithURL:[[NSURL alloc]
                                                              initWithString:[NSString
                                                                              stringWithFormat:
-                                                                             @"http://uploader.klikradio.org/request/%@",
+                                                                             @"http://samapi.klikradio.org/request/%@",
                                                                              songRequestID]]];
         [requestRequest setHTTPMethod:@"POST"];
         
