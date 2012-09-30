@@ -6,18 +6,22 @@
 //  Copyright (c) 2012 KLIK Radio. All rights reserved.
 //
 
-#import "KRSecondViewController.h"
+#import "KRDonationsViewController.h"
 
-@interface KRSecondViewController ()
+@interface KRDonationsViewController ()
 
 @end
 
-@implementation KRSecondViewController
+@implementation KRDonationsViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    NSURL *url = [NSURL URLWithString:@"https://www.wepay.com/donations/klikradio"];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    [DonationWebView loadRequest:urlRequest];
 }
 
 - (void)viewDidUnload

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KRSecondViewController : UIViewController
+@interface KRDonationsViewController : UIViewController {
+    IBOutlet UIWebView *DonationWebView;
+}
 
 @end
