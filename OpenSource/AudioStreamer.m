@@ -1255,6 +1255,7 @@ cleanup:
 #endif            
 			if (err)
 			{
+                NSLog(@"Instance A");
 				[self failWithErrorCode:AS_AUDIO_QUEUE_START_FAILED];
 				return;
 			}
@@ -1857,6 +1858,7 @@ cleanup:
 #endif					
 					if (err)
 					{
+                        NSLog(@"Instance B");
 						[self failWithErrorCode:AS_AUDIO_QUEUE_START_FAILED];
 						return;
 					}
@@ -1874,6 +1876,7 @@ cleanup:
 #endif					
 					if (err)
 					{
+                        NSLog(@"Instance C");
 						[self failWithErrorCode:AS_AUDIO_QUEUE_START_FAILED];
 						return;
 					}
@@ -2436,13 +2439,8 @@ void PropListener(void *inClientData, AudioSessionPropertyID inID, UInt32 inDatS
     NSDictionary *inDict = (NSDictionary *)inData;
     if ([[inDict objectForKey:@"OutputDeviceDidChange_Reason"] intValue] == 2)
     {
-        if (__streamer != nil)
-        {
-            if ([__streamer isPlaying])
-            {
-                [__streamer pause];
-            }
-        }
+        NSNotification *notification = [NSNotification notificationWithName:@"KLIKHeadphonesUnplugged" object:nil userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
     }
     NSLog(@"NEW ROUTE IS: %@", [inDict objectForKey:@"OutputDeviceDidChange_NewRoute"]);
 }

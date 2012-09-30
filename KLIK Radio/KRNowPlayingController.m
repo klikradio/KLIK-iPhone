@@ -99,8 +99,27 @@ switch ([streamer state])
      name:ASPresentAlertWithTitleNotification
      object:streamer];
     
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(headphonesUnplugged:)
+     name:@"KLIKHeadphonesUnplugged"
+     object:streamer];
+    
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [streamer start];
+}
+
+- (void)headphonesUnplugged
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (streamer != nil)
+        {
+            if ([streamer isPlaying])
+            {
+                [streamer pause];
+            }
+        }
+    });
 }
 
 - (void)startStream
