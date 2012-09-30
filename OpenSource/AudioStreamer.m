@@ -409,7 +409,6 @@ void ASReadStreamCallBack
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:anErrorCode], @"errorcode", [AudioStreamer stringForErrorCode:anErrorCode], @"message", nil];
     NSNotification *notification = [NSNotification notificationWithName:ASPresentAlertWithTitleNotification object:self userInfo:userInfo];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
-    NSLog(@"Notification being sent");
 }
 
 //
@@ -1342,6 +1341,8 @@ cleanup:
 	
 	if (eventType == kCFStreamEventErrorOccurred)
 	{
+        NSLog(@"Instance A");
+        NSLog(@"Bytes filled?: %zu", bytesFilled);
 		[self failWithErrorCode:AS_AUDIO_DATA_NOT_FOUND];
 	}
 	else if (eventType == kCFStreamEventEndEncountered)
@@ -1374,6 +1375,7 @@ cleanup:
 		{
 			if (state == AS_WAITING_FOR_DATA)
 			{
+                NSLog(@"Instance B");
 				[self failWithErrorCode:AS_AUDIO_DATA_NOT_FOUND];
 			}
 			
@@ -1476,6 +1478,7 @@ cleanup:
 			
 			if (length == -1)
 			{
+                NSLog(@"Instance C");
 				[self failWithErrorCode:AS_AUDIO_DATA_NOT_FOUND];
 				return;
 			}
@@ -2077,10 +2080,7 @@ cleanup:
 			{
 				AudioStreamBasicDescription pasbd = formatList[i].mASBD;
 
-				if(pasbd.mFormatID == kAudioFormatMPEG4AAC_HE_V2 && 
-#if TARGET_OS_IPHONE			
-				   [[UIDevice currentDevice] platformHasCapability:(UIDeviceSupportsARMV7)] && 
-#endif
+				if(pasbd.mFormatID == kAudioFormatMPEG4AAC_HE_V2 &&
 				   kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_MIN)
 				{
 					// We found HE-AAC v2 (SBR+PS), but before trying to play it
@@ -2091,7 +2091,8 @@ cleanup:
 					asbd = pasbd;
 #endif
 					break;
-				} else if (pasbd.mFormatID == kAudioFormatMPEG4AAC_HE)
+				}
+                else if (pasbd.mFormatID == kAudioFormatMPEG4AAC_HE)
 				{
 					//
 					// We've found HE-AAC, remember this to tell the audio queue
