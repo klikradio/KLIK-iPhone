@@ -70,9 +70,42 @@ switch ([streamer state])
     
 }
 
+- (void)startStreamer
+{
+    if ([reach currentReachabilityStatus] == ReachableViaWiFi)
+    {
+        streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://klikradio.org/klik"]];
+    }
+    else if ([reach currentReachabilityStatus] == ReachableViaWWAN)
+    {
+        streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://klikradio.org/mobileklik"]];
+    }
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(newSong:)
+     name:ASUpdateMetadataNotification
+     object:streamer];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(streamChanged:)
+     name:ASStatusChangedNotification
+     object:streamer];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(streamError:)
+     name:ASPresentAlertWithTitleNotification
+     object:streamer];
+    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [streamer start];
+}
+
 - (void)startStream
 {
-    if (reach == nil)
+    if (reach == nil && streamer == nil)
     {
         reach = [Reachability reachabilityWithHostName:@"apple.com"];
         
@@ -84,10 +117,12 @@ switch ([streamer state])
         
         [reach startNotifier];
     }
-    
-    if (streamer == nil)
+    else
     {
-        //TODO
+        if (streamer == nil)
+        {
+            [self startStreamer];
+        }
     }
 }
 
@@ -140,35 +175,7 @@ switch ([streamer state])
             streamer = nil;
         }
         
-        if ([curReach currentReachabilityStatus] == ReachableViaWiFi)
-        {
-            streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://klikradio.org/klik"]];
-        }
-        else if ([curReach currentReachabilityStatus] == ReachableViaWWAN)
-        {
-            streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://klikradio.org/mobileklik"]];
-        }
-        
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         selector:@selector(newSong:)
-         name:ASUpdateMetadataNotification
-         object:streamer];
-        
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         selector:@selector(streamChanged:)
-         name:ASStatusChangedNotification
-         object:streamer];
-        
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         selector:@selector(streamError:)
-         name:ASPresentAlertWithTitleNotification
-         object:streamer];
-        
-        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-        [streamer start];
+        [self startStreamer];
     }
 }
 
