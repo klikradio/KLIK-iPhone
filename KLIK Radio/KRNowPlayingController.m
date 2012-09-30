@@ -150,8 +150,6 @@ switch ([streamer state])
 {
     Reachability *curReach = [notification object];
     
-    NSLog(@"Reachability changed");
-    
     if ([curReach currentReachabilityStatus] == NotReachable)
     {
         [self stopStream];
