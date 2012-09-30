@@ -13,7 +13,7 @@
 //
 #define SHOUTCAST_METADATA
 
-#if TARGET_OS_IPHONE			
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
 #ifndef kCFCoreFoundationVersionNumber_iPhoneOS_4_0
 #define kCFCoreFoundationVersionNumber_iPhoneOS_4_0 550.32
@@ -28,7 +28,7 @@
 
 #define LOG_QUEUED_BUFFERS 0
 
-#define kNumAQBufs 16			// Number of audio queue buffers we allocate.
+#define kNumAQBufs 24			// Number of audio queue buffers we allocate.
 								// Needs to be big enough to keep audio pipeline
 								// busy (non-zero number of queued buffers) but
 								// not so big that audio takes too long to begin
