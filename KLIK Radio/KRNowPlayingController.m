@@ -69,69 +69,88 @@ switch ([streamer state])
     
 }
 
-- (void)startStream
+- (void)startStreamer
 {
-    if (reach == nil)
-    {
-        reach = [Reachability reachabilityWithHostName:@"majestic.wavestreamer.com"];
-    }
-    
     if ([reach currentReachabilityStatus] == ReachableViaWiFi)
     {
-        if (streamer == nil)
+        streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://klikradio.org/klik"]];
+    }
+    else if ([reach currentReachabilityStatus] == ReachableViaWWAN)
+    {
+        streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://klikradio.org/mobileklik"]];
+    }
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(newSong:)
+     name:ASUpdateMetadataNotification
+     object:streamer];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(streamChanged:)
+     name:ASStatusChangedNotification
+     object:streamer];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(streamError:)
+     name:ASPresentAlertWithTitleNotification
+     object:streamer];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(headphonesUnplugged:)
+     name:@"KLIKHeadphonesUnplugged"
+     object:streamer];
+    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [streamer start];
+}
+
+- (void)headphonesUnplugged
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (streamer != nil)
         {
-            streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://klikradio.org/klik"]];
-            
-            [[NSNotificationCenter defaultCenter]
-             addObserver:self
-             selector:@selector(newSong:)
-             name:ASUpdateMetadataNotification
-             object:streamer];
-            
-            [[NSNotificationCenter defaultCenter]
-             addObserver:self
-             selector:@selector(streamChanged:)
-             name:ASStatusChangedNotification
-             object:streamer];
-            
-            [[NSNotificationCenter defaultCenter]
-             addObserver:self
-             selector:@selector(streamError:)
-             name:ASPresentAlertWithTitleNotification
-             object:streamer];
-            
-            [[NSNotificationCenter defaultCenter]
-             addObserver:self
-             selector:@selector(reachabilityChanged:)
-             name:kReachabilityChangedNotification
-             object:nil];
-            
-            [reach startNotifier];
-            
-            [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-            [streamer start];
+            if ([streamer isPlaying])
+            {
+                [streamer pause];
+            }
         }
+    });
+}
+
+- (void)startStream
+{
+    if (reach == nil && streamer == nil)
+    {
+        reach = [Reachability reachabilityWithHostName:@"apple.com"];
+        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(reachabilityChanged:)
+         name:kReachabilityChangedNotification
+         object:nil];
+        
+        [reach startNotifier];
     }
     else
     {
-        UIAlertView *sorry = [[UIAlertView alloc] initWithTitle:@"No Wi-fi" message:@"Sorry, but KLIK currently doesn't have a mobile stream." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [sorry show];
-        
-        [NowPlayingBuffering stopAnimating];
-        [NowPlayingArtist setText:@"Wi-Fi Required"];
-        [NowPlayingTitle setText:@""];
-        [NowPlayingStop setTitle:@"Play" forState:UIControlStateNormal];
-        [NowPlayingImage setImage:[UIImage imageNamed:@"wifi.png"]];
-        
-        [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
-        [reach stopNotifier];
+        if (streamer == nil)
+        {
+            [self startStreamer];
+        }
     }
 }
 
 - (void) stopStream
 {
-    [streamer stop];
-    streamer = nil;
+    if (streamer != nil)
+    {
+        [streamer stop];
+        streamer = nil;
+    }
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:ASPresentAlertWithTitleNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:ASUpdateMetadataNotification object:nil];
@@ -149,20 +168,30 @@ switch ([streamer state])
 {
     Reachability *curReach = [notification object];
     
-    if ([curReach currentReachabilityStatus] == ReachableViaWWAN ||
-        [curReach currentReachabilityStatus] == NotReachable)
+    if ([curReach currentReachabilityStatus] == NotReachable)
     {
-        [streamer stop];
-        UIAlertView *sorry = [[UIAlertView alloc] initWithTitle:@"No Wi-fi" message:@"Sorry, but KLIK currently doesn't have a mobile stream.  Please try again with a Wi-fi connection." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [self stopStream];
+        
+        UIAlertView *sorry = [[UIAlertView alloc] initWithTitle:@"No Internet" message:@"Sorry, but we can't seem to get connected to the Internet.  Check to make sure your Internet works and try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [sorry show];
         
         [NowPlayingBuffering stopAnimating];
-        [NowPlayingArtist setText:@"Wi-Fi Required"];
+        [NowPlayingArtist setText:@"No Internet"];
         [NowPlayingTitle setText:@""];
         [NowPlayingStop setTitle:@"Play" forState:UIControlStateNormal];
         [NowPlayingImage setImage:[UIImage imageNamed:@"wifi.png"]];
         
         [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    }
+    else
+    {
+        if (streamer != nil)
+        {
+            [streamer stop];
+            streamer = nil;
+        }
+        
+        [self startStreamer];
     }
 }
 
@@ -257,9 +286,12 @@ switch ([streamer state])
 {
     if ([[[notification userInfo] objectForKey:@"errorcode"] intValue] == 7)
     {
-        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"KLIK is Offline" message:@"Please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [error show];
         [self stopStream];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"KLIK is Offline" message:@"Please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [error show];
+        });
     }
 }
 

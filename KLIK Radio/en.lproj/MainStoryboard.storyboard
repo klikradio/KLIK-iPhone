@@ -111,7 +111,7 @@
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="7kF-Or-Dzy">
                                 <rect key="frame" x="142" y="121" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <view opaque="NO" contentMode="scaleToFill" id="bm9-0v-v0T" customClass="MPVolumeView">
                                 <rect key="frame" x="40" y="369" width="240" height="35"/>
