@@ -448,12 +448,12 @@ void ASReadStreamCallBack
 			state == AS_PAUSED ||
 			state == AS_BUFFERING)
 		{
-			//self.state = AS_STOPPING;
-			//stopReason = AS_STOPPING_ERROR;
-			//AudioQueueStop(audioQueue, true);
+			self.state = AS_STOPPING;
+			stopReason = AS_STOPPING_ERROR;
+			AudioQueueStop(audioQueue, true);
 		}
 
-		//[self presentAlertWithErrorCode:anErrorCode];
+		[self presentAlertWithErrorCode:anErrorCode];
 	}
 }
 
