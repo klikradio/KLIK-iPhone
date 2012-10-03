@@ -28,8 +28,39 @@
 {
     [super viewDidLoad];
     
-    NSData *songData = [[NSData alloc] initWithContentsOfURL:[[NSURL alloc] initWithString:@"http://samapi.klikradio.org/songs/?limit=5&sort=date_added&desc=1"]];
-    songs = [songData objectFromJSONData];
+    UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 0)];
+    footer.backgroundColor = [UIColor clearColor];
+    //[self.tableView setTableHeaderView:footer];
+    [self.tableView setTableFooterView:footer];
+    
+    //NSData *songData = [[NSData alloc] initWithContentsOfURL:[[NSURL alloc] initWithString:@]];
+    
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
+    NSString *urlString = @"http://samapi.klikradio.org/songs/?limit=5&sort=date_added&desc=1";
+    NSURL *url = [[NSURL alloc]
+              initWithString:[urlString
+                              stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
+                                            cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                        timeoutInterval:15];
+
+    receivedData = [[NSMutableData alloc] init];
+    NSURLConnection *urlConnection = [[NSURLConnection alloc]
+                                  initWithRequest:urlRequest
+                                  delegate:self];
+    if (!urlConnection)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Error Connecting"
+                          message:@"Sorry, but we couldn't connect to KLIK's request server.  Please try again later."
+                          delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+        [alert show];
+    }
+
 }
 
 - (void)viewDidUnload
@@ -47,6 +78,10 @@
     [searchBar setShowsCancelButton:YES animated:YES];
     self.tableView.allowsSelection = NO;
     self.tableView.scrollEnabled = NO;
+    
+    songs = [[NSMutableArray alloc] init];
+    [self.tableView reloadData];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
@@ -106,6 +141,7 @@
 {
     songs = [receivedData objectFromJSONData];
     [self.tableView reloadData];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
@@ -180,6 +216,7 @@
     if ([buttonName isEqualToString:@"Yes"])
     {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         self.tableView.allowsSelection = NO;
         self.tableView.scrollEnabled = NO;
         
