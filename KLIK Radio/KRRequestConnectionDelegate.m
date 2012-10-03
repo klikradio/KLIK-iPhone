@@ -10,6 +10,8 @@
 
 @implementation KRRequestConnectionDelegate
 
+@synthesize controller;
+
 -(id) initWithView:(KRSongRequestController *)_controller
 {
     self = [super init];
