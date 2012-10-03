@@ -72,11 +72,6 @@ switch ([streamer state])
 
 - (void)startStreamer
 {
-    if (streamer != nil)
-    {
-        streamer = nil;
-    }
-    
     if ([reach currentReachabilityStatus] == ReachableViaWiFi)
     {
         streamer = [[AudioStreamer alloc] initWithURL:[NSURL URLWithString:@"http://klikradio.org/klik"]];
@@ -110,7 +105,6 @@ switch ([streamer state])
      name:@"KLIKHeadphonesUnplugged"
      object:streamer];
     
-    NSLog(@"STREAMER STARTED");
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [streamer start];
 }
@@ -174,7 +168,7 @@ switch ([streamer state])
 - (void) reachabilityChanged:(NSNotification *)notification
 {
     Reachability *curReach = [notification object];
-    NSLog(@"Reachability changed");
+    
     if ([curReach currentReachabilityStatus] == NotReachable)
     {
         [self stopStream];
@@ -192,13 +186,13 @@ switch ([streamer state])
     }
     else
     {
-        /*if (streamer != nil)
+        if (streamer != nil)
         {
             [streamer stop];
             streamer = nil;
         }
-        NSLog(@"Start streamer");
-        [self startStreamer];*/
+        
+        [self startStreamer];
     }
 }
 
