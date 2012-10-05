@@ -50,7 +50,7 @@
 								// but the largest packets. A buffer size error
 								// will occur if this number is too small.
 
-#define kAQMaxPacketDescs 512	// Number of packet descriptions in our array
+#define kAQMaxPacketDescs 2048	// Number of packet descriptions in our array
 
 typedef enum
 {
