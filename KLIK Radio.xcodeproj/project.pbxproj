@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA79A75C1605111300FBF56C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA79A75B1605111300FBF56C /* SystemConfiguration.framework */; };
+		CA985B7E1620057600CCBB4C /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = CA985B7D1620057600CCBB4C /* AudioStreamer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CA985B821620059800CCBB4C /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = CA985B811620059800CCBB4C /* UIDevice+Hardware.m */; };
+		CA985B83162005EE00CCBB4C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B6160420AE00B828DC /* AudioToolbox.framework */; };
+		CA985B85162005FA00CCBB4C /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA985B84162005FA00CCBB4C /* CoreFoundation.framework */; };
+		CA985B861620060F00CCBB4C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B8160420B300B828DC /* CFNetwork.framework */; };
+		CA985B871620061B00CCBB4C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B4160420A900B828DC /* MediaPlayer.framework */; };
+		CA985B881620064100CCBB4C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA79A75B1605111300FBF56C /* SystemConfiguration.framework */; };
 		CA9D92DC1606D59100F2F728 /* bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D21606D59100F2F728 /* bg2.png */; };
 		CA9D92DD1606D59100F2F728 /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D31606D59100F2F728 /* bg2@2x.png */; };
 		CA9D92DE1606D59100F2F728 /* noalbum.png in Resources */ = {isa = PBXBuildFile; fileRef = CA9D92D41606D59100F2F728 /* noalbum.png */; };
@@ -30,20 +36,19 @@
 		CABD329516041C3300B828DC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CABD329316041C3300B828DC /* MainStoryboard.storyboard */; };
 		CABD329816041C3300B828DC /* KRNowPlayingController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329716041C3300B828DC /* KRNowPlayingController.m */; };
 		CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CABD329E16041C3300B828DC /* KRSecondViewController.m */; };
-		CABD32B5160420A900B828DC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B4160420A900B828DC /* MediaPlayer.framework */; };
-		CABD32B7160420AE00B828DC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B6160420AE00B828DC /* AudioToolbox.framework */; };
-		CABD32B9160420B300B828DC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32B8160420B300B828DC /* CFNetwork.framework */; };
-		CABD32BB1604214600B828DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD32BA1604214600B828DC /* QuartzCore.framework */; };
-		CAC707A31606EB6800222C3C /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D92E71606D59F00F2F728 /* AudioStreamer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CAC707A41606EB6800222C3C /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D92E91606D59F00F2F728 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CAC707A51606EB6800222C3C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D92EB1606D59F00F2F728 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		CAC707A61606EB6800222C3C /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9D92ED1606D59F00F2F728 /* UIDevice+Hardware.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CAC707A91606EDEC00222C3C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC707A81606EDEC00222C3C /* Default.png */; };
 		CAC707AB1606EDEE00222C3C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC707AA1606EDED00222C3C /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CA79A75B1605111300FBF56C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CA985B7C1620057600CCBB4C /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStreamer.h; path = OpenSource/AudioStreamer.h; sourceTree = SOURCE_ROOT; };
+		CA985B7D1620057600CCBB4C /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStreamer.m; path = OpenSource/AudioStreamer.m; sourceTree = SOURCE_ROOT; };
+		CA985B801620059800CCBB4C /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+Hardware.h"; path = "OpenSource/UIDevice+Hardware.h"; sourceTree = SOURCE_ROOT; };
+		CA985B811620059800CCBB4C /* UIDevice+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+Hardware.m"; path = "OpenSource/UIDevice+Hardware.m"; sourceTree = SOURCE_ROOT; };
+		CA985B84162005FA00CCBB4C /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		CA9D92D21606D59100F2F728 /* bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg2.png; path = Images/bg2.png; sourceTree = "<group>"; };
 		CA9D92D31606D59100F2F728 /* bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg2@2x.png"; path = "Images/bg2@2x.png"; sourceTree = "<group>"; };
 		CA9D92D41606D59100F2F728 /* noalbum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noalbum.png; path = Images/noalbum.png; sourceTree = "<group>"; };
@@ -54,14 +59,10 @@
 		CA9D92D91606D59100F2F728 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "Images/second@2x.png"; sourceTree = "<group>"; };
 		CA9D92DA1606D59100F2F728 /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wifi.png; path = Images/wifi.png; sourceTree = "<group>"; };
 		CA9D92DB1606D59100F2F728 /* wifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi@2x.png"; path = "Images/wifi@2x.png"; sourceTree = "<group>"; };
-		CA9D92E61606D59F00F2F728 /* AudioStreamer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudioStreamer.h; path = ../OpenSource/AudioStreamer.h; sourceTree = "<group>"; };
-		CA9D92E71606D59F00F2F728 /* AudioStreamer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AudioStreamer.m; path = ../OpenSource/AudioStreamer.m; sourceTree = "<group>"; };
 		CA9D92E81606D59F00F2F728 /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = ../OpenSource/JSONKit.h; sourceTree = "<group>"; };
 		CA9D92E91606D59F00F2F728 /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = ../OpenSource/JSONKit.m; sourceTree = "<group>"; };
 		CA9D92EA1606D59F00F2F728 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../OpenSource/Reachability.h; sourceTree = "<group>"; };
 		CA9D92EB1606D59F00F2F728 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../OpenSource/Reachability.m; sourceTree = "<group>"; };
-		CA9D92EC1606D59F00F2F728 /* UIDevice+Hardware.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIDevice+Hardware.h"; path = "../OpenSource/UIDevice+Hardware.h"; sourceTree = "<group>"; };
-		CA9D92ED1606D59F00F2F728 /* UIDevice+Hardware.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+Hardware.m"; path = "../OpenSource/UIDevice+Hardware.m"; sourceTree = "<group>"; };
 		CAAE229A1616B0A300198146 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CAAE229D1616B0EA00198146 /* bg2-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg2-568h@2x.png"; path = "Images/bg2-568h@2x.png"; sourceTree = "<group>"; };
 		CAAE229F1616E88F00198146 /* bg2-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg2-568h.png"; path = "Images/bg2-568h.png"; sourceTree = "<group>"; };
@@ -93,11 +94,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA79A75C1605111300FBF56C /* SystemConfiguration.framework in Frameworks */,
-				CABD32BB1604214600B828DC /* QuartzCore.framework in Frameworks */,
-				CABD32B9160420B300B828DC /* CFNetwork.framework in Frameworks */,
-				CABD32B7160420AE00B828DC /* AudioToolbox.framework in Frameworks */,
-				CABD32B5160420A900B828DC /* MediaPlayer.framework in Frameworks */,
+				CA985B881620064100CCBB4C /* SystemConfiguration.framework in Frameworks */,
+				CA985B871620061B00CCBB4C /* MediaPlayer.framework in Frameworks */,
+				CA985B861620060F00CCBB4C /* CFNetwork.framework in Frameworks */,
+				CA985B85162005FA00CCBB4C /* CoreFoundation.framework in Frameworks */,
+				CA985B83162005EE00CCBB4C /* AudioToolbox.framework in Frameworks */,
 				CABD328216041C3200B828DC /* UIKit.framework in Frameworks */,
 				CABD328416041C3300B828DC /* Foundation.framework in Frameworks */,
 				CABD328616041C3300B828DC /* CoreGraphics.framework in Frameworks */,
@@ -151,6 +152,7 @@
 		CABD328016041C3200B828DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA985B84162005FA00CCBB4C /* CoreFoundation.framework */,
 				CA79A75B1605111300FBF56C /* SystemConfiguration.framework */,
 				CABD32BA1604214600B828DC /* QuartzCore.framework */,
 				CABD32B8160420B300B828DC /* CFNetwork.framework */,
@@ -192,14 +194,14 @@
 		CAC707A71606EBA400222C3C /* Open Source */ = {
 			isa = PBXGroup;
 			children = (
-				CA9D92E61606D59F00F2F728 /* AudioStreamer.h */,
-				CA9D92E71606D59F00F2F728 /* AudioStreamer.m */,
 				CA9D92E81606D59F00F2F728 /* JSONKit.h */,
 				CA9D92E91606D59F00F2F728 /* JSONKit.m */,
 				CA9D92EA1606D59F00F2F728 /* Reachability.h */,
 				CA9D92EB1606D59F00F2F728 /* Reachability.m */,
-				CA9D92EC1606D59F00F2F728 /* UIDevice+Hardware.h */,
-				CA9D92ED1606D59F00F2F728 /* UIDevice+Hardware.m */,
+				CA985B7C1620057600CCBB4C /* AudioStreamer.h */,
+				CA985B7D1620057600CCBB4C /* AudioStreamer.m */,
+				CA985B801620059800CCBB4C /* UIDevice+Hardware.h */,
+				CA985B811620059800CCBB4C /* UIDevice+Hardware.m */,
 			);
 			name = "Open Source";
 			path = "KLIK Radio";
@@ -284,14 +286,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAC707A31606EB6800222C3C /* AudioStreamer.m in Sources */,
 				CAC707A41606EB6800222C3C /* JSONKit.m in Sources */,
 				CAC707A51606EB6800222C3C /* Reachability.m in Sources */,
-				CAC707A61606EB6800222C3C /* UIDevice+Hardware.m in Sources */,
 				CABD328E16041C3300B828DC /* main.m in Sources */,
 				CABD329216041C3300B828DC /* KRAppDelegate.m in Sources */,
 				CABD329816041C3300B828DC /* KRNowPlayingController.m in Sources */,
 				CABD329F16041C3300B828DC /* KRSecondViewController.m in Sources */,
+				CA985B7E1620057600CCBB4C /* AudioStreamer.m in Sources */,
+				CA985B821620059800CCBB4C /* UIDevice+Hardware.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

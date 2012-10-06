@@ -10,8 +10,8 @@
 
 #define IPHONE_1G_NAMESTRING			@"iPhone 1G"
 #define IPHONE_3G_NAMESTRING			@"iPhone 3G"
-#define IPHONE_3GS_NAMESTRING			@"iPhone 3GS" 
-#define IPHONE_4G_NAMESTRING			@"iPhone 4" 
+#define IPHONE_3GS_NAMESTRING			@"iPhone 3GS"
+#define IPHONE_4G_NAMESTRING			@"iPhone 4"
 #define IPHONE_FUTURE_NAMESTRING		@"Future iPhone"
 #define IPHONE_UNKNOWN_NAMESTRING		@"Unknown iPhone"
 
@@ -103,7 +103,7 @@ typedef enum {
     UIDeviceSupportsCameraFlash = 1 << 29,
     UIDeviceSupportsDisplayPort = 1 << 30,
     UIDeviceSupportsFrontFacingCamera = 1 << 31,
-//    UIDeviceSupportsGyroscope = 1 << 32
+    //    UIDeviceSupportsGyroscope = 1 << 32
 } UIDeviceCapabilities;
 
 /*
